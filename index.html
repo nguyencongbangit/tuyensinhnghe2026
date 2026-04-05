@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d1b3e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Tuyển Sinh 2026 – Trường Cao Đẳng Kỹ Thuật Hải Phòng | HPTC</title>
+<meta name="description" content="Tuyển sinh 2026 – Trường CĐ Kỹ thuật Hải Phòng. Miễn 100% học phí cho HS tốt nghiệp THCS. 15 ngành đào tạo. Cam kết việc làm. Hỗ trợ XKLĐ Nhật, Hàn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c0392b; --red-dark:#96281b;
+  --navy:#0d1b3e; --navy-light:#162952;
+  --gold:#e8a020; --gold-light:#f5c842;
+  --green:#1a7a4a;
+  --white:#ffffff;
+  --cream:#fdf6ec;
+  --light:#f0f4fa;
+  --text:#1a1a2e;
+  --muted:#5a6070;
+  --shadow:0 4px 24px rgba(0,0,0,.12);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Be Vietnam Pro',sans-serif;color:var(--text);background:#f2f3f7;font-size:15px;line-height:1.65;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Barlow Condensed',sans-serif;line-height:1.15}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── UTILITY ── */
+.container{max-width:960px;margin:0 auto;padding:0 20px}
+.container-wide{max-width:1200px;margin:0 auto;padding:0 20px}
+.section{padding:72px 0}
+.section-sm{padding:48px 0}
+.badge{display:inline-block;padding:4px 14px;border-radius:30px;font-size:12px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.8px;text-transform:uppercase}
+.badge-red{background:var(--red);color:#fff}
+.badge-gold{background:var(--gold);color:#000}
+.badge-green{background:var(--green);color:#fff}
+.tag{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #e0e0e0;border-radius:8px;padding:6px 14px;font-size:13px;font-weight:600}
+.center{text-align:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:768px){
+  .grid2,.grid3,.grid4{grid-template-columns:1fr}
+  .grid2-sm{grid-template-columns:1fr 1fr!important}
+}
+
+/* ── TOP ANNOUNCEMENT BAR ── */
+.announce-bar{background:var(--red);color:#fff;text-align:center;padding:10px 20px;font-size:13px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;position:relative;z-index:200}
+.announce-bar span{color:var(--gold-light)}
+.announce-bar a{color:#fff;text-decoration:underline;margin-left:8px}
+
+/* ── STICKY NAV ── */
+.nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:3px solid var(--gold);box-shadow:0 2px 16px rgba(0,0,0,.35)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-logo img{height:42px;width:42px;border-radius:50%;object-fit:cover}
+.nav-logo .school-name{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;line-height:1.2}
+.nav-logo .school-name span{color:var(--gold);display:block;font-size:12px;font-weight:400;letter-spacing:.5px}
+.nav-links{display:flex;gap:0;list-style:none}
+.nav-links a{color:#aab4cc;font-size:13px;font-weight:600;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;padding:8px 14px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-cta{background:var(--red);color:#fff!important;border-radius:6px;padding:8px 16px!important;font-weight:700!important}
+.nav-cta:hover{background:var(--red-dark)!important}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url('images/campus.jpg') center center/cover no-repeat;transform:scale(1.04);transition:transform 8s ease}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,62,.93) 0%,rgba(13,27,62,.82) 50%,rgba(192,57,43,.55) 100%)}
+.hero:hover .hero-bg{transform:scale(1.0)}
+.hero-inner{position:relative;z-index:2;padding:80px 0 60px}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.hero-eyebrow .pill{background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.4);color:var(--gold);padding:5px 14px;border-radius:30px;font-size:12px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.8px}
+.hero h1{color:#fff;font-size:clamp(38px,7vw,80px);font-weight:900;letter-spacing:1px;line-height:1.05;margin-bottom:10px}
+.hero h1 .accent{color:var(--gold)}
+.hero-sub{color:rgba(255,255,255,.82);font-size:clamp(15px,2vw,19px);max-width:620px;margin-bottom:32px;font-weight:500}
+.hero-sub strong{color:var(--gold-light)}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;cursor:pointer;transition:all .22s;border:none;text-decoration:none}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 4px 20px rgba(192,57,43,.45)}
+.btn-primary:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(192,57,43,.5)}
+.btn-secondary{background:var(--gold);color:var(--navy);box-shadow:0 4px 20px rgba(232,160,32,.35)}
+.btn-secondary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5)}
+.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.btn-lg{padding:18px 36px;font-size:18px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1}
+.hero-stat .lbl{font-size:12px;color:rgba(255,255,255,.65);margin-top:2px}
+.hero-stat-div{width:1px;background:rgba(255,255,255,.2);align-self:stretch}
+
+/* ── URGENT BAND ── */
+.urgent-band{background:linear-gradient(90deg,var(--red-dark),var(--red),#e84343,var(--red));color:#fff;padding:20px 0;position:relative;overflow:hidden}
+.urgent-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 10px,rgba(255,255,255,.04) 10px,rgba(255,255,255,.04) 20px)}
+.urgent-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;text-align:center}
+.urgent-badge{background:var(--gold);color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;padding:4px 12px;border-radius:4px;letter-spacing:.5px}
+.urgent-text{font-family:'Barlow Condensed',sans-serif;font-size:clamp(18px,3vw,28px);font-weight:900;letter-spacing:.5px}
+.urgent-text span{color:var(--gold-light)}
+.urgent-cta{background:#fff;color:var(--red);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;padding:10px 20px;border-radius:8px;cursor:pointer;border:none;white-space:nowrap;transition:all .2s}
+.urgent-cta:hover{background:var(--gold);color:var(--navy)}
+
+/* ── SECTION HEADER ── */
+.sec-header{text-align:center;margin-bottom:48px}
+.sec-header .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.sec-header h2{font-size:clamp(28px,4vw,44px);font-weight:900;color:var(--navy);margin-bottom:10px}
+.sec-header p{color:var(--muted);font-size:15px;max-width:560px;margin:0 auto}
+.divider{width:60px;height:4px;background:var(--gold);border-radius:2px;margin:12px auto 0}
+
+/* ── BENEFITS CARDS ── */
+.benefit-card{background:#fff;border-radius:16px;padding:28px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;border-top:4px solid transparent}
+.benefit-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.14)}
+.benefit-card.red{border-top-color:var(--red)}
+.benefit-card.gold{border-top-color:var(--gold)}
+.benefit-card.green{border-top-color:var(--green)}
+.benefit-card.navy{border-top-color:var(--navy)}
+.benefit-card .icon{font-size:42px;margin-bottom:14px}
+.benefit-card h3{font-size:22px;font-weight:900;color:var(--navy);margin-bottom:10px}
+.benefit-card p{font-size:14px;color:#444;line-height:1.7}
+.benefit-card .highlight{font-size:18px;font-weight:800;color:var(--red);font-family:'Barlow Condensed',sans-serif;margin:6px 0}
+.benefit-card .decree{font-size:11px;color:var(--muted);margin-top:6px;font-style:italic}
+.benefit-card::after{content:'';position:absolute;bottom:-30px;right:-30px;width:100px;height:100px;border-radius:50%;opacity:.06}
+.benefit-card.red::after{background:var(--red)}
+.benefit-card.gold::after{background:var(--gold)}
+.benefit-card.green::after{background:var(--green)}
+.benefit-card.navy::after{background:var(--navy)}
+
+/* ── FREE TUITION SPOTLIGHT ── */
+.spotlight{background:linear-gradient(135deg,var(--navy) 0%,#162952 60%,#1a3870 100%);padding:64px 0;position:relative;overflow:hidden}
+.spotlight::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:rgba(232,160,32,.08);border-radius:50%}
+.spotlight::after{content:'';position:absolute;bottom:-80px;left:-80px;width:350px;height:350px;background:rgba(192,57,43,.07);border-radius:50%}
+.spotlight-inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;position:relative;z-index:1}
+@media(max-width:768px){.spotlight-inner{grid-template-columns:1fr}}
+.spotlight-text .label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px}
+.spotlight-text h2{color:#fff;font-size:clamp(30px,4vw,48px);font-weight:900;margin-bottom:16px}
+.spotlight-text h2 span{color:var(--gold)}
+.spotlight-text p{color:rgba(255,255,255,.8);font-size:15px;line-height:1.75;margin-bottom:14px}
+.spotlight-text ul{list-style:none;padding:0}
+.spotlight-text ul li{color:rgba(255,255,255,.85);font-size:14px;padding:6px 0;padding-left:22px;position:relative}
+.spotlight-text ul li::before{content:'✓';position:absolute;left:0;color:var(--gold);font-weight:900}
+.spotlight-box{background:rgba(255,255,255,.06);border:1.5px solid rgba(232,160,32,.3);border-radius:16px;padding:28px}
+.spotlight-box .big-text{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,7vw,80px);font-weight:900;color:var(--gold);line-height:1;text-align:center}
+.spotlight-box .sub{text-align:center;color:rgba(255,255,255,.7);font-size:14px;margin-top:4px}
+.spotlight-box .decree-tag{background:rgba(232,160,32,.12);border:1px solid rgba(232,160,32,.3);border-radius:8px;padding:10px 14px;margin-top:16px;font-size:12px;color:rgba(255,255,255,.65);text-align:center;line-height:1.6}
+
+/* ── PROGRAMS ── */
+.programs-bg{background:var(--light)}
+.program-card{background:#fff;border-radius:12px;padding:20px 18px;display:flex;align-items:flex-start;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);transition:all .2s;cursor:default;border-left:4px solid transparent}
+.program-card:hover{transform:translateX(4px);box-shadow:0 6px 24px rgba(0,0,0,.1);border-left-color:var(--red)}
+.program-card .prog-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.prog-icon.red{background:#fff0f0}
+.prog-icon.gold{background:#fff9e0}
+.prog-icon.green{background:#edf9f3}
+.prog-icon.navy{background:#eef1fa}
+.program-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.program-card .meta{font-size:12px;color:var(--muted);line-height:1.5}
+.program-card .seats{display:inline-block;background:var(--light);border-radius:4px;padding:2px 8px;font-size:11px;font-weight:700;color:var(--navy);margin-top:4px}
+.highlight-program{background:linear-gradient(135deg,#fff5f5,#fff);border:2px solid var(--red)!important;border-left-width:4px!important;border-left-color:var(--red)!important}
+.highlight-program h4{color:var(--red)}
+
+/* ── TIMELINE ── */
+.timeline{position:relative;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--red))}
+.tl-item{position:relative;margin-bottom:32px}
+.tl-dot{position:absolute;left:-32px;width:28px;height:28px;border-radius:50%;background:var(--navy);border:3px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:900;color:var(--gold)}
+.tl-content{background:#fff;border-radius:12px;padding:18px 20px;box-shadow:var(--shadow)}
+.tl-content .tl-period{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;color:var(--red);letter-spacing:.5px;margin-bottom:4px}
+.tl-content h4{font-size:18px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.tl-content p{font-size:13px;color:#555;line-height:1.65}
+.tl-content .tl-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tl-tag{background:var(--light);border-radius:20px;padding:3px 10px;font-size:11px;font-weight:700;color:var(--navy);font-family:'Barlow Condensed',sans-serif}
+
+/* ── GALLERY ── */
+.gallery-strip{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;border-radius:16px;overflow:hidden;height:360px}
+@media(max-width:768px){.gallery-strip{grid-template-columns:1fr;height:auto}}
+.gallery-strip .g-main{grid-row:1/3}
+.gallery-strip img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-strip img:hover{transform:scale(1.04)}
+.gallery-strip > div{overflow:hidden}
+
+/* ── FAQ ── */
+.faq-bg{background:var(--light)}
+.faq-item{background:#fff;border-radius:12px;margin-bottom:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq-question{width:100%;background:none;border:none;padding:18px 20px;text-align:left;font-family:'Be Vietnam Pro',sans-serif;font-size:15px;font-weight:700;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;transition:background .2s}
+.faq-question:hover{background:var(--light)}
+.faq-question .faq-icon{width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--gold);font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--red);color:#fff}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;padding:0 20px}
+.faq-item.open .faq-answer{max-height:400px;padding:0 20px 18px}
+.faq-answer p,.faq-answer li{font-size:14px;color:#444;line-height:1.75}
+.faq-answer ul{padding-left:18px}
+
+/* ── CONTACT CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--red-dark) 0%,var(--red) 50%,#e84343 100%);padding:72px 0;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-50px;right:-50px;width:280px;height:280px;background:rgba(255,255,255,.05);border-radius:50%}
+.cta-section::after{content:'';position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;background:rgba(0,0,0,.1);border-radius:50%}
+.cta-inner{position:relative;z-index:1;text-align:center}
+.cta-inner h2{color:#fff;font-size:clamp(32px,5vw,56px);font-weight:900;margin-bottom:10px}
+.cta-inner h2 span{color:var(--gold-light)}
+.cta-inner p{color:rgba(255,255,255,.85);font-size:16px;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto}
+.cta-contacts{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.cta-contact-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:16px 24px;text-align:center;min-width:180px}
+.cta-contact-card .cc-label{font-size:12px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.cta-contact-card .cc-value{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:900;color:#fff}
+.cta-contact-card .cc-sub{font-size:13px;color:rgba(255,255,255,.6);margin-top:2px}
+
+/* ── FOOTER ── */
+.footer{background:var(--navy);color:rgba(255,255,255,.65);padding:36px 0;font-size:13px}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-logo{display:flex;align-items:center;gap:12px}
+.footer-logo img{height:44px;width:44px;border-radius:50%}
+.footer-logo .name{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700}
+.footer-logo .sub{font-size:12px;color:rgba(255,255,255,.5)}
+.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.55);transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:24px;padding-top:20px;text-align:center;font-size:12px}
+
+/* ── FLOATING CTA ── */
+.float-cta{position:fixed;bottom:24px;right:24px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.float-btn{display:flex;align-items:center;gap:10px;background:var(--red);color:#fff;border-radius:50px;padding:13px 20px;font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;box-shadow:0 4px 20px rgba(192,57,43,.55);letter-spacing:.3px;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;animation:pulse-btn 2.5s infinite}
+@keyframes pulse-btn{0%,100%{box-shadow:0 4px 20px rgba(192,57,43,.55)}50%{box-shadow:0 4px 30px rgba(192,57,43,.85),0 0 0 8px rgba(192,57,43,.12)}}
+.float-phone{background:var(--green);animation:pulse-btn 2.5s infinite .5s}
+
+/* ── SLIDER / ALBUM ── */
+.album-slider{position:relative;width:100%;background:#111;line-height:0;overflow:hidden}
+.album-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1);will-change:transform;align-items:stretch}
+.album-slide{min-width:100%;position:relative;display:flex;justify-content:center;align-items:center;background:#111}
+/* Ảnh tự giãn theo chiều ngang, giữ tỉ lệ gốc, không bị crop */
+.album-slide img{
+  width:100%;
+  height:auto;
+  max-width:100%;
+  display:block;
+  object-fit:contain;
+  background:#111;
+}
+.album-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;background:rgba(0,0,0,.45);color:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(4px)}
+.album-btn:hover{background:rgba(192,57,43,.85);transform:translateY(-50%) scale(1.08)}
+.album-btn.prev{left:14px}
+.album-btn.next{right:14px}
+.album-dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:20;flex-wrap:wrap;justify-content:center;max-width:80%}
+.album-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.45);border:2px solid rgba(255,255,255,.6);cursor:pointer;transition:all .25s;flex-shrink:0}
+.album-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.25)}
+.album-counter{position:absolute;top:12px;right:16px;background:rgba(0,0,0,.5);color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;padding:3px 10px;border-radius:20px;z-index:20;backdrop-filter:blur(4px)}
+/* ══════════════════════════════════════════════════════
+   📱 MOBILE UX — TUYẾN SINH HPTC
+   ══════════════════════════════════════════════════════ */
+
+/* ── Touch base ── */
+*{-webkit-tap-highlight-color:transparent}
+button,a,input,select,textarea{touch-action:manipulation}
+
+/* ── Ripple ── */
+.tap{position:relative;overflow:hidden}
+@keyframes ripAnim{to{transform:scale(4);opacity:0}}
+.rip{position:absolute;border-radius:50%;transform:scale(0);animation:ripAnim .55s linear;pointer-events:none;background:rgba(255,255,255,.35)}
+
+/* ── Scroll progress bar ── */
+#mScrollBar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--red));width:0%;z-index:999;pointer-events:none;transition:width .08s linear}
+
+/* ── Bottom navigation ── */
+.m-nav{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:#fff;border-top:1px solid #e8edf5;
+  box-shadow:0 -4px 24px rgba(0,0,0,.1);
+  padding-bottom:env(safe-area-inset-bottom);
+  align-items:center;justify-content:space-around;
+  height:66px;
+}
+.m-nav-item{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:3px;border:none;background:none;cursor:pointer;padding:6px 2px;
+  color:#8c95a6;transition:color .2s;position:relative;overflow:hidden;
+}
+.m-nav-item.on{color:var(--navy)}
+.m-nav-item.on .m-ico{transform:scale(1.18)}
+.m-ico{font-size:22px;line-height:1;transition:transform .25s cubic-bezier(.34,1.56,.64,1)}
+.m-lbl{font-size:12px;font-weight:700;line-height:1;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px}
+.m-nav-call{
+  flex-shrink:0;width:54px;height:54px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),#e84343);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:22px;text-decoration:none;
+  box-shadow:0 4px 16px rgba(192,57,43,.55);
+  border:3px solid #fff;margin-bottom:14px;
+  animation:mCallPulse 2.5s infinite;transition:transform .2s;
+}
+.m-nav-call:active{transform:scale(.93)}
+@keyframes mCallPulse{
+  0%,100%{box-shadow:0 4px 16px rgba(192,57,43,.55)}
+  50%{box-shadow:0 4px 24px rgba(192,57,43,.8),0 0 0 7px rgba(192,57,43,.12)}
+}
+.m-nav-item .m-badge{
+  position:absolute;top:4px;right:calc(50% - 14px);
+  width:8px;height:8px;border-radius:50%;background:var(--red);
+  border:2px solid #fff;display:none;
+}
+.m-nav-item.has-badge .m-badge{display:block}
+
+/* ── Zalo floating button ── */
+.m-zalo{
+  display:none;position:fixed;bottom:76px;right:14px;z-index:299;
+  width:50px;height:50px;border-radius:50%;
+  background:#0068FF;color:#fff;
+  align-items:center;justify-content:center;flex-direction:column;
+  box-shadow:0 4px 16px rgba(0,104,255,.4);
+  text-decoration:none;transition:transform .2s;
+  font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;letter-spacing:-1px;
+}
+.m-zalo:active{transform:scale(.92)}
+.m-zalo-pulse{position:absolute;inset:-4px;border-radius:50%;border:2px solid #0068FF;opacity:.6;animation:zaloPulse 2s infinite}
+@keyframes zaloPulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+
+/* ── Nav call button (in top bar) ── */
+.nav-m-call{
+  display:none;width:36px;height:36px;border-radius:50%;background:var(--red);
+  color:#fff;align-items:center;justify-content:center;font-size:16px;
+  text-decoration:none;flex-shrink:0;
+}
+
+/* ── Mobile quick strip (after slider) ── */
+.m-strip{
+  display:none;overflow-x:auto;gap:8px;padding:10px 14px;
+  background:var(--navy);scrollbar-width:none;-ms-overflow-style:none;
+}
+.m-strip::-webkit-scrollbar{display:none}
+.m-chip{
+  flex-shrink:0;display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:20px;padding:6px 12px;
+}
+.m-chip .cv{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:900;color:var(--gold);line-height:1}
+.m-chip .cl{font-size:12px;color:rgba(255,255,255,.65);line-height:1.3;margin-left:2px}
+
+/* ── Program filter chips ── */
+.prog-chips{
+  display:none;overflow-x:auto;gap:8px;padding:0 0 14px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.prog-chips::-webkit-scrollbar{display:none}
+.prog-chip{
+  flex-shrink:0;padding:7px 16px;border-radius:20px;font-size:12px;font-weight:700;
+  cursor:pointer;border:1.5px solid var(--border);background:#fff;color:var(--navy);
+  white-space:nowrap;transition:all .2s;font-family:'Barlow Condensed',sans-serif;
+  letter-spacing:.3px;position:relative;overflow:hidden;
+}
+.prog-chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── Swipe hint on slider ── */
+.swipe-hint{
+  position:absolute;bottom:44px;left:50%;transform:translateX(-50%);
+  z-index:22;display:none;flex-direction:column;align-items:center;gap:2px;
+  animation:swipeAnim 2s ease-in-out 1s forwards;pointer-events:none;
+}
+@keyframes swipeAnim{
+  0%{opacity:0;transform:translateX(-50%) translateY(0)}
+  20%{opacity:1}
+  60%{opacity:1;transform:translateX(calc(-50% - 20px)) translateY(0)}
+  80%{opacity:0;transform:translateX(calc(-50% - 26px)) translateY(0)}
+  100%{opacity:0;display:none}
+}
+.swipe-hint span{color:#fff;font-size:11px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;background:rgba(0,0,0,.4);padding:3px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+.swipe-hint .sh-arrow{font-size:20px;color:rgba(255,255,255,.8)}
+
+/* ── Mobile card tap animation ── */
+.news-card,.program-card,.benefit-card{transition:transform .15s ease,box-shadow .25s}
+.news-card:active,.program-card:active,.benefit-card:active{transform:scale(.97)}
+
+/* ── Article modal: slide-up on mobile ── */
+@media(max-width:768px){
+  .art-modal-overlay{align-items:flex-end;padding:0}
+  .art-modal-box{border-radius:20px 20px 0 0;max-height:92svh;overflow-y:auto;
+    animation:slideUp .35s cubic-bezier(.32,0,.67,0) reverse, slideUp .35s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .art-modal-cover{height:180px}
+  .art-modal-content{padding:18px 18px 48px}
+  .art-modal-content h2{font-size:25px}
+  .art-modal-close{top:12px;right:12px;width:36px;height:36px}
+  .art-modal-content .art-body{font-size:16px}
+}
+
+/* ══ RESPONSIVE LAYOUT ══ */
+@media(max-width:768px){
+  /* Activate mobile-only elements */
+  .m-nav{display:flex}
+  .m-zalo{display:flex}
+  .m-strip{display:flex}
+  .prog-chips{display:flex}
+  .nav-m-call{display:flex}
+  .swipe-hint{display:flex}
+  /* Deactivate desktop-only */
+  .float-cta{display:none!important}
+  .nav-links{display:none!important}
+  .album-btn{display:none}
+  /* Body padding for bottom nav */
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
+  /* Announce bar */
+  .announce-bar{font-size:13px;padding:9px 12px;line-height:1.5}
+  /* Nav */
+  .nav-inner{height:52px}
+  .nav-logo img{height:32px;width:32px}
+  .nav-logo .school-name{font-size:13px}
+  .nav-logo .school-name span{font-size:11px}
+  /* Hero */
+  .hero{min-height:88svh}
+  .hero-inner{padding:40px 0 28px}
+  .hero h1{font-size:clamp(32px,10vw,46px)}
+  .hero-sub{font-size:16px;margin-bottom:20px}
+  .hero-actions{flex-direction:column;gap:10px}
+  .hero-actions .btn{width:100%;justify-content:center;font-size:16px;padding:15px 20px;border-radius:12px}
+  .hero-stats{gap:14px;flex-wrap:wrap;justify-content:center}
+  .hero-stat .num{font-size:26px}
+  .hero-stat .lbl{font-size:10px}
+  .hero-stat-div{display:none}
+  /* Slider dots bigger */
+  .album-dots{bottom:16px;gap:7px}
+  .album-dot{width:9px;height:9px}
+  /* Sections */
+  .section{padding:36px 0}
+  .section-sm{padding:28px 0}
+  .sec-header{margin-bottom:22px}
+  .sec-header h2{font-size:27px}
+  .sec-header p{font-size:15px}
+  .container,.container-wide{padding:0 14px}
+  /* Urgent */
+  .urgent-inner{flex-direction:column;gap:8px;text-align:center;padding:0 14px}
+  .urgent-text{font-size:20px}
+  .urgent-cta{width:100%;border-radius:50px;padding:12px 20px}
+  /* Benefits — 2x2 grid */
+  #benefits .grid2{grid-template-columns:1fr 1fr;gap:10px}
+  .benefit-card{padding:18px 14px;border-radius:14px}
+  .benefit-card .icon{font-size:32px;margin-bottom:10px}
+  .benefit-card h3{font-size:16px}
+  .benefit-card p{font-size:13px;line-height:1.6}
+  .benefit-card .highlight{font-size:15px}
+  .benefit-card .decree{font-size:11px}
+  /* Spotlight */
+  .spotlight{padding:36px 0}
+  .spotlight-inner{grid-template-columns:1fr;gap:20px}
+  .spotlight-text h2{font-size:27px}
+  .spotlight-box .big-text{font-size:52px}
+  /* Programs */
+  #programs .grid2{grid-template-columns:1fr;gap:8px}
+  .program-card{padding:15px 14px;border-radius:10px}
+  .program-card .prog-icon{width:44px;height:44px;font-size:22px}
+  .program-card h4{font-size:16px}
+  .program-card .meta{font-size:13px}
+  /* News — horizontal scroll */
+  #news .grid3{display:flex;overflow-x:auto;gap:12px;padding-bottom:8px;scrollbar-width:none;-ms-overflow-style:none}
+  #news .grid3::-webkit-scrollbar{display:none}
+  .news-card{min-width:78vw;flex-shrink:0}
+  .news-card .nc-img{height:150px}
+  /* Gallery */
+  .gallery-strip{grid-template-columns:1fr 1fr;height:auto;gap:5px}
+  .gallery-strip .g-main{grid-row:auto}
+  .gallery-strip img{height:130px}
+  /* Timeline */
+  .timeline{padding-left:26px}
+  .tl-content{padding:12px 14px}
+  .tl-content h4{font-size:17px}
+  .tl-content p{font-size:14px}
+  /* FAQ */
+  .faq-question{font-size:15px;padding:16px 14px}
+  .faq-answer p,.faq-answer li{font-size:15px}
+  /* Contact CTA */
+  .cta-section{padding:48px 0}
+  .cta-inner h2{font-size:31px}
+  .cta-inner p{font-size:16px}
+  .cta-contacts{flex-direction:column;gap:10px;align-items:stretch}
+  .cta-contact-card{min-width:unset;width:100%;padding:14px 16px}
+  /* Footer */
+  .footer{padding:24px 0 10px}
+  .footer-inner{flex-direction:column;gap:10px;text-align:center}
+  .footer-links{display:none}
+  .footer-bottom{font-size:13px;line-height:1.6}
+}
+@media(max-width:390px){
+  #benefits .grid2{grid-template-columns:1fr}
+  .hero h1{font-size:28px}
+  .spotlight-box .big-text{font-size:44px}
+}
+
+/* ── NEWS CARDS ── */
+.news-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.news-card:hover{transform:translateY(-5px);box-shadow:0 10px 32px rgba(0,0,0,.12)}
+.news-card .nc-img{height:180px;overflow:hidden;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--muted)}
+.news-card .nc-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.news-card:hover .nc-img img{transform:scale(1.06)}
+.news-card .nc-body{padding:16px 18px;flex:1;display:flex;flex-direction:column}
+.news-card .nc-cat{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.news-card h3{font-size:17px;font-weight:900;color:var(--navy);margin-bottom:8px;line-height:1.3}
+.news-card p{font-size:13px;color:var(--muted);line-height:1.65;flex:1}
+.news-card .nc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
+.news-card .nc-date{font-size:11px;color:var(--muted)}
+.news-card .nc-read{font-size:12px;font-weight:700;color:var(--red);font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px}
+
+/* ── ARTICLE MODAL (frontend view) ── */
+.art-modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:600;display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;backdrop-filter:blur(4px)}
+.art-modal-overlay.hidden{display:none}
+.art-modal-box{background:#fff;border-radius:16px;max-width:760px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.art-modal-cover{height:300px;overflow:hidden;background:var(--navy)}
+.art-modal-cover img{width:100%;height:100%;object-fit:cover}
+.art-modal-content{padding:28px 32px 36px}
+.art-modal-content .art-cat{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--red);text-transform:uppercase;margin-bottom:8px}
+.art-modal-content h2{font-size:30px;font-weight:900;color:var(--navy);margin-bottom:12px}
+.art-modal-content .art-meta{font-size:12px;color:var(--muted);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.art-modal-content .art-body{font-size:15px;line-height:1.8;color:#333}
+.art-modal-content .art-body h2,.art-modal-content .art-body h3{color:var(--navy);margin:20px 0 10px;font-family:'Barlow Condensed',sans-serif}
+.art-modal-content .art-body p{margin-bottom:12px}
+.art-modal-content .art-body ul,.art-modal-content .art-body ol{padding-left:22px;margin-bottom:12px}
+.art-modal-content .art-body img{max-width:100%;border-radius:8px;margin:12px 0}
+.art-modal-close{position:absolute;top:16px;right:16px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:38px;height:38px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;backdrop-filter:blur(4px);z-index:10}
+.art-modal-close:hover{background:var(--red)}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .6s ease,transform .6s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}
+
+/* ── COUNTER ── */
+.counter-num{transition:all .3s}
+
+@media(max-width:768px){
+  .section{padding:48px 0}
+  .hero-inner{padding:60px 0 40px}
+  .hero h1{font-size:40px}
+  .hero-actions{flex-direction:column}
+  .hero-actions .btn{width:100%;justify-content:center}
+  .hero-stats{gap:16px}
+  .float-cta{bottom:16px;right:16px}
+  .float-btn{font-size:13px;padding:11px 16px}
+  .nav-logo .school-name{display:none}
+  .cta-contacts{gap:12px}
+  .gallery-strip{height:220px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── ANNOUNCEMENT BAR ── -->
+<div class="announce-bar">
+  🔥 <span>MIỄN 100% HỌC PHÍ</span> cho HS tốt nghiệp THCS theo NĐ 238/2025/NĐ-CP &nbsp;|&nbsp; Nhận hồ sơ từ tháng 1 đến 15/12/2026
+  <a href="tel:0839888566">Gọi ngay →</a>
+</div>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="container-wide">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="images/logo.png" alt="HPTC Logo">
+        <div class="school-name">Cao Đẳng Kỹ Thuật Hải Phòng<span>HPTC · Tuyển sinh 2026</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#benefits">Lợi thế</a></li>
+        <li><a href="#programs">Ngành học</a></li>
+        <li><a href="#schedule">Lịch tuyển sinh</a></li>
+        <li><a href="#faq">Hỏi đáp</a></li>
+        <li><a href="#contact" class="nav-cta">📋 Đăng ký ngay</a></li>
+      </ul>
+      <a href="tel:0839888566" class="nav-m-call" aria-label="Gọi tư vấn">📞</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── ALBUM SLIDER (dynamic from localStorage) ── -->
+<div class="album-slider" id="albumSlider">
+  <div class="album-track" id="albumTrack"></div>
+  <button class="album-btn prev" onclick="albumMove(-1)" aria-label="Ảnh trước">&#8249;</button>
+  <button class="album-btn next" onclick="albumMove(1)" aria-label="Ảnh sau">&#8250;</button>
+  <div class="album-dots" id="albumDots"></div>
+  <div class="album-counter" id="albumCounter"></div>
+  <div class="swipe-hint" id="swipeHint">
+    <span class="sh-arrow">👈</span>
+    <span>Vuốt để xem</span>
+  </div>
+</div>
+
+<!-- ── MOBILE QUICK STRIP ── -->
+<div class="m-strip" id="mStrip">
+  <div class="m-chip"><span class="cv">15</span><span class="cl">Ngành<br>đào tạo</span></div>
+  <div class="m-chip"><span class="cv">0₫</span><span class="cl">Học phí<br>THCS</span></div>
+  <div class="m-chip"><span class="cv">1.315</span><span class="cl">Chỉ tiêu<br>năm 2026</span></div>
+  <div class="m-chip"><span class="cv">3</span><span class="cl">Cấp<br>đào tạo</span></div>
+  <div class="m-chip tap" onclick="location.href='tel:0839888566'" style="background:rgba(192,57,43,.25);border-color:rgba(192,57,43,.4);cursor:pointer">
+    <span style="font-size:18px">📞</span>
+    <span class="cl" style="color:#fff">Gọi ngay<br><strong style="color:var(--gold);font-size:13px;font-family:'Barlow Condensed',sans-serif">0839.888.566</strong></span>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="container-wide">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">
+        <span class="pill">🎓 Tuyển Sinh 2026</span>
+        <span class="pill">✅ Nhận hồ sơ ngay hôm nay</span>
+      </div>
+      <h1>
+        HỌC NGHỀ<br>
+        <span class="accent">CÓ NGHỀ</span><br>
+        CÓ TƯƠNG LAI
+      </h1>
+      <p class="hero-sub">
+        Trường Cao Đẳng Kỹ Thuật Hải Phòng – <strong>15 ngành đào tạo</strong>, miễn học phí, cam kết việc làm.<br>
+        Cơ hội xuất khẩu lao động Nhật Bản, Hàn Quốc ngay sau tốt nghiệp.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">📋 Đăng ký tư vấn ngay</a>
+        <a href="#programs" class="btn btn-secondary btn-lg">📚 Xem ngành học</a>
+        <a href="tel:0839888566" class="btn btn-outline btn-lg">📞 0839.888.566</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num" data-target="15">0</div>
+          <div class="lbl">Ngành đào tạo</div>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat">
+          <div class="num" data-target="1315">0</div>
+          <div class="lbl">Tổng chỉ tiêu</div>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat">
+          <div class="num" data-target="425">0</div>
+          <div class="lbl">Chỉ tiêu Cao Đẳng</div>
+        </div>
+        <div class="hero-stat-div"></div>
+        <div class="hero-stat">
+          <div class="num" data-target="490">0</div>
+          <div class="lbl">Chỉ tiêu Trung Cấp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── URGENT BAND ── -->
+<div class="urgent-band">
+  <div class="urgent-inner">
+    <span class="urgent-badge">🔴 CHÍNH SÁCH NHÀ NƯỚC</span>
+    <p class="urgent-text">Học sinh THCS học nghề Trung cấp → <span>MIỄN HOÀN TOÀN HỌC PHÍ</span></p>
+    <a href="#contact" class="urgent-cta">Đăng ký hưởng ngay →</a>
+  </div>
+</div>
+
+<!-- ── BENEFITS ── -->
+<section class="section" id="benefits">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Tại sao chọn HPTC</div>
+      <h2>4 Lý Do Không Thể Bỏ Qua</h2>
+      <p>Những lợi thế cạnh tranh mà không trường nào trong khu vực có đủ</p>
+      <div class="divider"></div>
+    </div>
+    <div class="grid2">
+      <div class="benefit-card red reveal delay-1">
+        <div class="icon">🆓</div>
+        <h3>Miễn 100% Học Phí</h3>
+        <div class="highlight">HOÀN TOÀN MIỄN PHÍ</div>
+        <p>Học sinh tốt nghiệp THCS học nghề trình độ Trung cấp được <strong>miễn toàn bộ học phí</strong> theo chính sách Nhà nước. Không lo chi phí, không lo gánh nặng tài chính cho gia đình.</p>
+        <div class="decree">📋 Căn cứ Nghị Định 238/2025/NĐ-CP của Chính phủ</div>
+      </div>
+      <div class="benefit-card green reveal delay-2">
+        <div class="icon">💼</div>
+        <h3>Việc Làm Cam Kết</h3>
+        <div class="highlight" style="color:var(--green)">Lương 8 – 25 triệu/tháng</div>
+        <p>Nhà trường <strong>đảm bảo giới thiệu việc làm</strong> ngay sau tốt nghiệp. Hỗ trợ tư vấn <strong>du học và xuất khẩu lao động Nhật Bản, Hàn Quốc, Đài Loan hoàn toàn miễn phí</strong>.</p>
+      </div>
+      <div class="benefit-card gold reveal delay-3">
+        <div class="icon">⚡</div>
+        <h3>Ra Trường Nhanh</h3>
+        <div class="highlight" style="color:var(--gold)">Chỉ 1,5 – 3 năm</div>
+        <p>Trung cấp chỉ <strong>1,5 – 2 năm</strong>, Cao đẳng <strong>2 – 3 năm</strong>. Học phí chỉ từ <strong>1,2 – 1,5 triệu/tháng</strong>. Ngành nặng nhọc, nguy hiểm giảm thêm <strong>70% học phí</strong>.</p>
+      </div>
+      <div class="benefit-card navy reveal delay-4">
+        <div class="icon">🌏</div>
+        <h3>Học Ngoại Ngữ Miễn Phí</h3>
+        <div class="highlight" style="color:var(--navy)">Tiếng Trung + Tiếng Hàn</div>
+        <p>Được tham gia học <strong>tiếng Trung, tiếng Hàn miễn phí</strong> ngay tại trường — tăng đáng kể cơ hội việc làm và xuất khẩu lao động thu nhập cao.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FREE TUITION SPOTLIGHT ── -->
+<section class="spotlight">
+  <div class="container">
+    <div class="spotlight-inner">
+      <div class="spotlight-text reveal-left">
+        <div class="label">🔥 Chính sách đặc biệt năm 2026</div>
+        <h2>Tiết Kiệm <span>150 – 200 Triệu</span><br>Trong 4 Năm Học</h2>
+        <p>Thay vì tốn 4 năm + 150-200 triệu cho Đại học mà chưa chắc có việc làm, học nghề 2 năm tại HPTC con bạn <strong>ra trường có ngay nghề trong tay</strong> và doanh nghiệp chờ sẵn.</p>
+        <ul>
+          <li>Học sinh THCS: Miễn 100% học phí theo Nghị Định Chính phủ</li>
+          <li>Ngành nặng nhọc, nguy hiểm: Giảm thêm 70% học phí</li>
+          <li>Có ký túc xá, nhà ăn cho học sinh ở xa</li>
+          <li>Thực tập tại doanh nghiệp FDI ngay trong quá trình học</li>
+          <li>Liên thông lên Cao Đẳng, Đại học bất cứ lúc nào</li>
+        </ul>
+        <br>
+        <a href="#contact" class="btn btn-secondary">Nhận tư vấn miễn phí →</a>
+      </div>
+      <div class="reveal-right">
+        <div class="spotlight-box">
+          <div class="big-text">0₫</div>
+          <div class="sub">Học phí Trung cấp cho HS tốt nghiệp THCS</div>
+          <hr style="border-color:rgba(255,255,255,.1);margin:16px 0">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="color:rgba(255,255,255,.65);font-size:13px">Thời gian đào tạo</span>
+              <span style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900">1,5 – 2 năm</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="color:rgba(255,255,255,.65);font-size:13px">Cao Đẳng</span>
+              <span style="color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900">1,2 – 1,5 tr/tháng</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="color:rgba(255,255,255,.65);font-size:13px">Xét tuyển học bạ</span>
+              <span style="color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900">ĐTB ≥ 5.0</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <span style="color:rgba(255,255,255,.65);font-size:13px">Nhận hồ sơ</span>
+              <span style="color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900">T1 – T12/2026</span>
+            </div>
+          </div>
+          <div class="decree-tag">
+            📋 Chính sách miễn học phí theo<br>
+            <strong style="color:var(--gold)">Nghị Định 238/2025/NĐ-CP</strong> của Chính phủ<br>
+            <em>Chính sách Nhà nước – uy tín, không lo "bẫy"</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAMS ── -->
+<section class="section programs-bg" id="programs">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Ngành đào tạo 2026</div>
+      <h2>15 Ngành – Chọn Ngay Nghề Tương Lai</h2>
+      <p>Các ngành kỹ thuật đang có nhu cầu nhân lực cực cao, lương hấp dẫn tại doanh nghiệp FDI và thị trường Nhật, Hàn</p>
+      <div class="divider"></div>
+    </div>
+    <!-- Filter chips (mobile only) -->
+    <div class="prog-chips" id="progChips">
+      <button class="prog-chip on tap" data-filter="all" onclick="filterProg(this,'all')">🔥 Tất cả</button>
+      <button class="prog-chip tap" data-filter="xkld" onclick="filterProg(this,'xkld')">✈️ XKLĐ Nhật·Hàn</button>
+      <button class="prog-chip tap" data-filter="free" onclick="filterProg(this,'free')">🆓 Miễn học phí</button>
+      <button class="prog-chip tap" data-filter="nu" onclick="filterProg(this,'nu')">👩 Phù hợp nữ</button>
+      <button class="prog-chip tap" data-filter="tech" onclick="filterProg(this,'tech')">⚙️ Kỹ thuật</button>
+    </div>
+    <div class="grid2">
+      <div class="program-card highlight-program reveal delay-1" data-tags="xkld free tech">
+        <div class="prog-icon red">⚡</div>
+        <div>
+          <h4>Điện Công Nghiệp</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Nhu cầu XKLĐ cực cao sang Nhật, Hàn</div>
+          <span class="seats">🎯 70 + 110 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card highlight-program reveal delay-2" data-tags="xkld free tech">
+        <div class="prog-icon gold">🔥</div>
+        <div>
+          <h4>Hàn (Kỹ Thuật Hàn)</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Lương XKLĐ 30-50 triệu/tháng</div>
+          <span class="seats">🎯 30 + 100 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card highlight-program reveal delay-3" data-tags="xkld free tech">
+        <div class="prog-icon navy">🚗</div>
+        <div>
+          <h4>Công Nghệ Ô Tô</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Thị trường ô tô VN bùng nổ</div>
+          <span class="seats">🎯 50 + 30 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-4" data-tags="free tech">
+        <div class="prog-icon green">🏗️</div>
+        <div>
+          <h4>Kỹ Thuật Xây Dựng</h4>
+          <div class="meta">Trung Cấp<br>Ngành xây dựng hạ tầng quốc gia</div>
+          <span class="seats">🎯 100 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-1" data-tags="tech nu">
+        <div class="prog-icon navy">💻</div>
+        <div>
+          <h4>Công Nghệ Thông Tin</h4>
+          <div class="meta">Cao Đẳng<br>IT – ngành hot nhất thập kỷ</div>
+          <span class="seats">🎯 40 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-2" data-tags="free nu">
+        <div class="prog-icon gold">📊</div>
+        <div>
+          <h4>Kế Toán Doanh Nghiệp</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Phù hợp nữ sinh – việc làm ổn định</div>
+          <span class="seats">🎯 40 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-3" data-tags="free tech">
+        <div class="prog-icon red">❄️</div>
+        <div>
+          <h4>Kỹ Thuật Máy Lạnh & ĐHKK</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Thiếu nhân lực trầm trọng</div>
+          <span class="seats">🎯 20 + 50 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-4" data-tags="xkld free tech">
+        <div class="prog-icon green">⚙️</div>
+        <div>
+          <h4>Cắt Gọt Kim Loại (CNC)</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Công nghệ CNC – cần nhân lực cao</div>
+          <span class="seats">🎯 15 + 50 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-1" data-tags="free nu">
+        <div class="prog-icon navy">🏢</div>
+        <div>
+          <h4>Quản Trị Kinh Doanh</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp</div>
+          <span class="seats">🎯 30 + 30 chỉ tiêu</span>
+        </div>
+      </div>
+      <div class="program-card reveal delay-2" data-tags="free nu">
+        <div class="prog-icon gold">🍳</div>
+        <div>
+          <h4>Kỹ Thuật Chế Biến Món Ăn</h4>
+          <div class="meta">Cao Đẳng · Trung Cấp<br>Phù hợp nữ sinh – ngành dịch vụ</div>
+          <span class="seats">🎯 20 + 20 chỉ tiêu</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:28px" class="reveal">
+      <p style="color:var(--muted);font-size:14px;margin-bottom:16px">+ 5 ngành đào tạo khác | Xem đầy đủ tại hptc.edu.vn</p>
+      <a href="#contact" class="btn btn-primary">🎓 Đăng ký tư vấn chọn ngành →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS / ARTICLES ── -->
+<section class="section" id="news" style="background:var(--light)">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Tin tức & Thông báo</div>
+      <h2>Cập Nhật Mới Nhất Từ HPTC</h2>
+      <div class="divider"></div>
+    </div>
+    <div id="newsGrid" class="grid3"></div>
+    <div id="newsEmpty" style="display:none;text-align:center;padding:32px 0;color:var(--muted)">
+      <p style="font-size:15px">Chưa có tin tức. Hãy quay lại sau!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── GALLERY ── -->
+<section class="section-sm">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Cuộc sống tại HPTC</div>
+      <h2>Môi Trường Học Tập Hiện Đại</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-strip reveal">
+      <div class="g-main">
+        <img src="images/campus.jpg" alt="Khuôn viên Trường CĐ Kỹ Thuật Hải Phòng" loading="lazy">
+      </div>
+      <div>
+        <img src="images/faculty.jpg" alt="Giảng viên HPTC" loading="lazy">
+      </div>
+      <div>
+        <img src="images/hall.jpg" alt="Hội trường HPTC" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TIMELINE ── -->
+<section class="section" id="schedule" style="background:var(--light)">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Lịch tuyển sinh 2026</div>
+      <h2>Đăng Ký Sớm – Nhận Nhiều Ưu Đãi</h2>
+      <p>4 đợt xét tuyển trong năm, nhận hồ sơ liên tục từ tháng 1 đến tháng 12/2026</p>
+      <div class="divider"></div>
+    </div>
+    <div style="max-width:600px;margin:0 auto">
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot">1</div>
+          <div class="tl-content">
+            <div class="tl-period">📅 Tháng 1 – 4/2026</div>
+            <h4>Giai Đoạn Khởi Động – Gieo Hạt</h4>
+            <p>Tư vấn trực tiếp tại các trường THCS, THPT. Nhấn mạnh miễn học phí và đăng ký sớm. Nhận hồ sơ Trung cấp ngay khi kết thúc lớp 9.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">THCS lớp 8-9</span>
+              <span class="tl-tag">Trung cấp miễn phí</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item reveal delay-1">
+          <div class="tl-dot">2</div>
+          <div class="tl-content">
+            <div class="tl-period">📅 Tháng 5 – 7/2026 (Đợt 1)</div>
+            <h4>Xét Tuyển Học Bạ Lớp 12</h4>
+            <p>Tập trung sau khi HS THPT có kết quả học bạ lớp 12. Đẩy mạnh xét tuyển online. Mục tiêu: lấp đủ 50% chỉ tiêu Cao Đẳng.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">THPT lớp 12</span>
+              <span class="tl-tag">Cao Đẳng</span>
+              <span class="tl-tag">ĐTB ≥ 5.0</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item reveal delay-2">
+          <div class="tl-dot" style="background:var(--red)">3</div>
+          <div class="tl-content" style="border-left:3px solid var(--red)">
+            <div class="tl-period">⭐ Tháng 8 – 9/2026 (Đợt 2 – QUAN TRỌNG NHẤT)</div>
+            <h4>Sau Thi THPT – Cơ Hội Vàng</h4>
+            <p>Tiếp cận HS không đủ điểm vào ĐH. Thông điệp: <em>"Không vào được ĐH? Cao Đẳng kỹ thuật – lựa chọn thông minh nhất!"</em></p>
+            <div class="tl-tags">
+              <span class="tl-tag" style="background:#fff0f0;color:var(--red)">Đợt quan trọng nhất</span>
+              <span class="tl-tag">Sau thi THPT</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-item reveal delay-3">
+          <div class="tl-dot">4</div>
+          <div class="tl-content">
+            <div class="tl-period">📅 Tháng 10 – 12/2026 (Đợt 3 & 4)</div>
+            <h4>Tuyển Sinh Bổ Sung – Trung Cấp</h4>
+            <p>Nhắm vào THCS (trung cấp miễn phí). Lấp đủ chỉ tiêu còn lại. Hạn cuối nhận hồ sơ: <strong>15/12/2026</strong>.</p>
+            <div class="tl-tags">
+              <span class="tl-tag">THCS tốt nghiệp</span>
+              <span class="tl-tag">Hết 15/12/2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section faq-bg" id="faq">
+  <div class="container">
+    <div class="sec-header reveal">
+      <div class="eyebrow">Giải đáp thắc mắc</div>
+      <h2>Câu Hỏi Thường Gặp</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="max-width:720px;margin:0 auto">
+
+      <div class="faq-item open reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Học sinh tốt nghiệp THCS có thực sự được miễn 100% học phí không?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Có, hoàn toàn miễn phí.</strong> Đây là chính sách của Nhà nước tại <strong>Nghị Định 238/2025/NĐ-CP của Chính phủ</strong>, không phải trường tự hứa. Học sinh tốt nghiệp THCS học nghề trình độ Trung cấp tại các cơ sở GDNN được miễn toàn bộ học phí trong suốt thời gian đào tạo. Phụ huynh có thể tự tìm kiếm Google để xác nhận.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Điều kiện xét tuyển cụ thể là gì?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Cao Đẳng & Cao Đẳng liên thông:</strong> Tốt nghiệp THPT, điểm trung bình 3 môn (Toán + 2 trong 7 môn: Ngữ văn, Lịch sử, Vật lý, Hóa học, Sinh học, Tin học, Công nghệ) của lớp 12 ≥ 5.0.</p>
+          <br>
+          <p><strong>Trung cấp:</strong> Tốt nghiệp THCS, điểm trung bình 3 môn (Toán + 2 trong 4 môn: Ngữ văn, Tiếng Anh, Tin học, Công nghệ) lớp 9 ≥ 5.0.</p>
+          <br>
+          <p><strong>Không cần thi thêm bất kỳ bài thi nào.</strong></p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Học xong có chắc có việc làm không?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Nhà trường <strong>cam kết đảm bảo đầu ra và giới thiệu việc làm</strong> sau tốt nghiệp. Học sinh được đi thực tập nghề tại doanh nghiệp FDI trong thời gian học để nâng cao tay nghề và tiếp cận công nghệ mới. Ngoài ra còn có hỗ trợ <strong>tư vấn du học và xuất khẩu lao động hoàn toàn miễn phí</strong> sang Nhật Bản, Hàn Quốc, Đài Loan.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-3">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Con gái có học được ngành kỹ thuật không?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Hoàn toàn được! Nhiều ngành rất phù hợp với nữ sinh:</p>
+          <ul>
+            <li><strong>Kế toán doanh nghiệp</strong> – lý tưởng nhất</li>
+            <li><strong>Công nghệ thông tin</strong></li>
+            <li><strong>Quản trị kinh doanh</strong></li>
+            <li><strong>Kỹ thuật chế biến món ăn</strong></li>
+            <li><strong>Điện tử công nghiệp</strong> – nhiều nữ làm rất tốt</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq-item reveal delay-4">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Học Trung cấp xong có học lên tiếp được không?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Có. Tốt nghiệp Trung cấp có thể <strong>liên thông lên Cao Đẳng</strong> ngay tại trường (điều kiện: cùng ngành nghề và có bằng THPT hoặc đã hoàn thành chương trình GDTX THPT). Sau đó tiếp tục liên thông lên Đại học tại các trường ĐH có chương trình liên thông.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Trường có ký túc xá không? Ở đâu?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Có. Nhà trường có <strong>nhà ăn và ký túc xá phục vụ ăn, ở</strong> cho học sinh sinh viên ở xa về học. Địa chỉ trường: <strong>Thôn Quán Rẽ, Xã An Khánh, TP. Hải Phòng</strong>.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <h2>Đăng Ký Ngay<br><span>Hôm Nay!</span></h2>
+      <p>Nhận tư vấn miễn phí, chọn ngành phù hợp và bắt đầu hành trình nghề nghiệp thành công ngay từ bây giờ.</p>
+      <div class="cta-contacts">
+        <div class="cta-contact-card">
+          <div class="cc-label">📞 Điện thoại</div>
+          <div class="cc-value"><a href="tel:02253677734" style="color:#fff">02253.677.734</a></div>
+          <div class="cc-sub">Phòng Tuyển sinh</div>
+        </div>
+        <div class="cta-contact-card">
+          <div class="cc-label">📱 Di động / Zalo</div>
+          <div class="cc-value"><a href="tel:0839888566" style="color:#fff">0839.888.566</a></div>
+          <div class="cc-sub">Tư vấn trực tiếp</div>
+        </div>
+        <div class="cta-contact-card">
+          <div class="cc-label">🌐 Website</div>
+          <div class="cc-value" style="font-size:16px">hptc.edu.vn</div>
+          <div class="cc-sub">Đăng ký online</div>
+        </div>
+        <div class="cta-contact-card">
+          <div class="cc-label">📍 Địa chỉ</div>
+          <div class="cc-value" style="font-size:14px;line-height:1.3">Thôn Quán Rẽ<br>Xã An Khánh, HP</div>
+          <div class="cc-sub">Đến tham quan trường</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:0839888566" class="btn btn-secondary btn-lg">📞 Gọi ngay 0839.888.566</a>
+        <a href="http://hptc.edu.vn" target="_blank" class="btn btn-outline btn-lg">🌐 Đăng ký online</a>
+      </div>
+      <p style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.55)">Nhận hồ sơ liên tục: Tháng 1/2026 – 15/12/2026 · Hiệu trưởng: Lã Đình Kế</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="images/logo.png" alt="HPTC">
+        <div>
+          <div class="name">Trường Cao Đẳng Kỹ Thuật Hải Phòng</div>
+          <div class="sub">HPTC · Haiphong Technical College</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#benefits">Lợi thế</a>
+        <a href="#programs">Ngành học</a>
+        <a href="#schedule">Lịch tuyển sinh</a>
+        <a href="#faq">Hỏi đáp</a>
+        <a href="#contact">Liên hệ</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 Trường Cao Đẳng Kỹ Thuật Hải Phòng · Thôn Quán Rẽ, Xã An Khánh, TP. Hải Phòng · ĐT: 02253.677.734
+    </div>
+  </div>
+</footer>
+
+<!-- ── ARTICLE READ MODAL ── -->
+<div class="art-modal-overlay hidden" id="artReadOverlay" onclick="if(event.target===this)closeArticleRead()">
+  <div class="art-modal-box" style="position:relative">
+    <button class="art-modal-close" onclick="closeArticleRead()">×</button>
+    <div class="art-modal-cover" id="artReadCover" style="display:none">
+      <img id="artReadCoverImg" src="" alt="">
+    </div>
+    <div class="art-modal-content">
+      <div class="art-cat" id="artReadCat"></div>
+      <h2 id="artReadTitle"></h2>
+      <div class="art-meta" id="artReadMeta"></div>
+      <div class="art-body" id="artReadBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FLOATING CTA (desktop) ── -->
+<div class="float-cta">
+  <a href="tel:0839888566" class="float-btn float-phone">📞 Gọi tư vấn ngay</a>
+  <a href="#contact" class="float-btn">📋 Đăng ký</a>
+</div>
+
+<!-- ── MOBILE: BOTTOM NAVIGATION ── -->
+<nav class="m-nav" id="mNav" aria-label="Điều hướng di động">
+  <button class="m-nav-item on tap" id="mn-home" onclick="mNavGo('hero',this)" aria-label="Trang chủ">
+    <span class="m-ico">🏠</span>
+    <span class="m-lbl">Trang chủ</span>
+  </button>
+  <button class="m-nav-item tap" id="mn-programs" onclick="mNavGo('programs',this)" aria-label="Ngành học">
+    <span class="m-ico">📚</span>
+    <span class="m-lbl">Ngành học</span>
+  </button>
+  <a href="tel:0839888566" class="m-nav-call tap" aria-label="Gọi tư vấn ngay">📞</a>
+  <button class="m-nav-item tap" id="mn-news" onclick="mNavGo('news',this)" aria-label="Tin tức">
+    <span class="m-ico">📰</span>
+    <span class="m-badge"></span>
+    <span class="m-lbl">Tin tức</span>
+  </button>
+  <button class="m-nav-item tap" id="mn-faq" onclick="mNavGo('faq',this)" aria-label="Hỏi đáp">
+    <span class="m-ico">❓</span>
+    <span class="m-lbl">Hỏi đáp</span>
+  </button>
+</nav>
+
+<!-- ── MOBILE: ZALO BUTTON ── -->
+<a href="https://zalo.me/0839888566" class="m-zalo tap" target="_blank" rel="noopener" aria-label="Chat Zalo">
+  <div class="m-zalo-pulse"></div>
+  <span style="line-height:1;font-size:15px">Zalo</span>
+</a>
+
+<!-- ── SCROLL PROGRESS BAR ── -->
+<div id="mScrollBar"></div>
+
+<script>
+// ════════════════════════════════════════
+// DATA (đồng bộ với admin.html)
+// ════════════════════════════════════════
+const KEY_BANNERS   = 'hptc_banners';
+const KEY_ARTICLES  = 'hptc_articles';
+
+const DEFAULT_BANNERS = [
+  { id:'d1', src:'images/slide5.png', alt:'HPTC – Kiến Tạo Tương Lai Vững Chắc', type:'path' },
+  { id:'d2', src:'images/slide6.png', alt:'HPTC – Cánh Cửa Tương Lai, Chào Tân Sinh Viên 2026', type:'path' },
+  { id:'d3', src:'images/slide7.png', alt:'HPTC – Đa Dạng Ngành Nghề, Học Đi Đôi Với Hành', type:'path' },
+  { id:'d4', src:'images/slide1.jpg', alt:'Tuyển Sinh 2026 – Trường CĐ Kỹ Thuật Hải Phòng', type:'path' },
+  { id:'d5', src:'images/slide2.png', alt:'Tuyển Sinh 2026 – Chào Team 2K8', type:'path' },
+  { id:'d6', src:'images/slide3.png', alt:'Phương Thức Tuyển Sinh Năm 2026 – 4 phương thức', type:'path' },
+  { id:'d7', src:'images/slide4.png', alt:'Phương Thức Tuyển Sinh 2026 – 6 phương thức', type:'path' },
+  { id:'d8', src:'images/slide8.png', alt:'Tuyển Sinh 2026 – Cơ Hội Việc Làm Rộng Mở', type:'path' },
+  { id:'d9', src:'images/slide9.png', alt:'Tuyển Sinh 2026 – Đăng Ký Ngay, Tương Lai Tươi Sáng', type:'path' },
+  { id:'d10', src:'images/slide10.png', alt:'Tuyển Sinh 2026 – Trường CĐ Kỹ Thuật Hải Phòng, Khởi Đầu Tương Lai', type:'path' },
+];
+
+const BANNER_VERSION = 10; // tăng số này mỗi khi thêm slide mặc định mới
+function getBanners() {
+  try {
+    const ver = parseInt(localStorage.getItem(KEY_BANNERS + '_v') || '0');
+    if (ver < BANNER_VERSION) {
+      // có slide mới → reset về mặc định, giữ slide do admin tự thêm
+      const existing = JSON.parse(localStorage.getItem(KEY_BANNERS) || '[]');
+      const custom = existing.filter(b => !b.id.startsWith('d'));
+      const merged = [...DEFAULT_BANNERS, ...custom];
+      localStorage.setItem(KEY_BANNERS, JSON.stringify(merged));
+      localStorage.setItem(KEY_BANNERS + '_v', BANNER_VERSION);
+      return merged;
+    }
+    const raw = localStorage.getItem(KEY_BANNERS);
+    return raw ? JSON.parse(raw) : (localStorage.setItem(KEY_BANNERS, JSON.stringify(DEFAULT_BANNERS)), DEFAULT_BANNERS);
+  } catch { return DEFAULT_BANNERS; }
+}
+function getArticles() {
+  try { return JSON.parse(localStorage.getItem(KEY_ARTICLES) || '[]'); }
+  catch { return []; }
+}
+function fmtDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return `${d.getDate().toString().padStart(2,'0')}/${(d.getMonth()+1).toString().padStart(2,'0')}/${d.getFullYear()}`;
+}
+
+// ════════════════════════════════════════
+// DYNAMIC SLIDER
+// ════════════════════════════════════════
+let _sliderCurrent = 0, _sliderTotal = 0, _sliderTimer = null;
+
+function buildSlider() {
+  const banners = getBanners();
+  _sliderTotal = banners.length;
+  const track = document.getElementById('albumTrack');
+  const dotsEl = document.getElementById('albumDots');
+  track.innerHTML = banners.map((b, i) =>
+    `<div class="album-slide"><img src="${b.src}" alt="${b.alt}" ${i<2?'loading="eager"':'loading="lazy"'}></div>`
+  ).join('');
+  dotsEl.innerHTML = banners.map((_, i) =>
+    `<span class="album-dot${i===0?' active':''}" onclick="albumGoTo(${i})"></span>`
+  ).join('');
+  sliderGoTo(0);
+
+  // swipe
+  let tx = 0;
+  const slider = document.getElementById('albumSlider');
+  slider.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  slider.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) { clearInterval(_sliderTimer); sliderGoTo(_sliderCurrent + (dx<0?1:-1)); sliderStartAuto(); }
+  }, { passive: true });
+
+  sliderStartAuto();
+}
+
+function sliderGoTo(idx) {
+  _sliderCurrent = (idx + _sliderTotal) % _sliderTotal;
+  document.getElementById('albumTrack').style.transform = `translateX(-${_sliderCurrent * 100}%)`;
+  document.querySelectorAll('.album-dot').forEach((d,i) => d.classList.toggle('active', i === _sliderCurrent));
+  document.getElementById('albumCounter').textContent = `${_sliderCurrent + 1} / ${_sliderTotal}`;
+}
+function sliderStartAuto() {
+  clearInterval(_sliderTimer);
+  _sliderTimer = setInterval(() => sliderGoTo(_sliderCurrent + 1), 4500);
+}
+window.albumMove = dir => { clearInterval(_sliderTimer); sliderGoTo(_sliderCurrent + dir); sliderStartAuto(); };
+window.albumGoTo = idx => { clearInterval(_sliderTimer); sliderGoTo(idx); sliderStartAuto(); };
+
+// ════════════════════════════════════════
+// NEWS / ARTICLES
+// ════════════════════════════════════════
+function buildNews() {
+  const all = getArticles().filter(a => a.status === 'published');
+  const grid = document.getElementById('newsGrid');
+  const empty = document.getElementById('newsEmpty');
+  const newsSection = document.getElementById('news');
+
+  if (!all.length) {
+    newsSection.style.display = 'none';
+    return;
+  }
+  newsSection.style.display = '';
+  const latest = all.slice(-6).reverse();
+  grid.innerHTML = latest.map(a => `
+    <div class="news-card reveal" onclick="openArticleRead('${a.id}')" style="cursor:pointer">
+      <div class="nc-img">
+        ${a.coverImage
+          ? `<img src="${a.coverImage}" alt="${a.title}" loading="lazy" onerror="this.parentElement.textContent='📰'">`
+          : '📰'}
+      </div>
+      <div class="nc-body">
+        <div class="nc-cat">${a.category || 'Tin tức'}</div>
+        <h3>${a.title}</h3>
+        <p>${a.excerpt || ''}</p>
+        <div class="nc-footer">
+          <span class="nc-date">📅 ${fmtDate(a.createdAt)}</span>
+          <span class="nc-read">Đọc tiếp →</span>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // re-observe new reveal elements
+  grid.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+// ── Article reader modal ──
+function openArticleRead(id) {
+  const articles = getArticles();
+  const a = articles.find(x => x.id === id);
+  if (!a) return;
+  document.getElementById('artReadCat').textContent = a.category || '';
+  document.getElementById('artReadTitle').textContent = a.title || '';
+  document.getElementById('artReadMeta').textContent = `📅 ${fmtDate(a.createdAt)}  ·  ${a.category || 'Tin tức'}`;
+  document.getElementById('artReadBody').innerHTML = a.content || a.excerpt || '';
+  const cover = document.getElementById('artReadCover');
+  const coverImg = document.getElementById('artReadCoverImg');
+  if (a.coverImage) { coverImg.src = a.coverImage; cover.style.display = ''; }
+  else { cover.style.display = 'none'; }
+  document.getElementById('artReadOverlay').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+function closeArticleRead() {
+  document.getElementById('artReadOverlay').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+// ════════════════════════════════════════
+// SCROLL REVEAL
+// ════════════════════════════════════════
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+// ════════════════════════════════════════
+// COUNTER ANIMATION
+// ════════════════════════════════════════
+function animateCounter(el, target, duration = 1800) {
+  let start = null;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / duration, 1);
+    el.textContent = Math.floor((1 - Math.pow(1-p, 3)) * target).toLocaleString('vi-VN');
+    if (p < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString('vi-VN');
+  };
+  requestAnimationFrame(step);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.animated) {
+      e.target.dataset.animated = '1';
+      e.target.querySelectorAll('[data-target]').forEach(el => animateCounter(el, parseInt(el.dataset.target)));
+    }
+  });
+}, { threshold: 0.5 });
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) counterObserver.observe(heroStats);
+
+// ════════════════════════════════════════
+// FAQ ACCORDION
+// ════════════════════════════════════════
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ════════════════════════════════════════
+// SMOOTH SCROLL
+// ════════════════════════════════════════
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' }); }
+  });
+});
+
+// ════════════════════════════════════════
+// HIDE FLOAT CTA
+// ════════════════════════════════════════
+const ctaSection = document.querySelector('#contact');
+const floatCta = document.querySelector('.float-cta');
+const hideObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    floatCta.style.opacity = e.isIntersecting ? '0' : '1';
+    floatCta.style.pointerEvents = e.isIntersecting ? 'none' : 'auto';
+  });
+}, { threshold: 0.3 });
+if (ctaSection) hideObserver.observe(ctaSection);
+
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+buildSlider();
+buildNews();
+
+// ════════════════════════════════════════
+// 📱 MOBILE UX FEATURES
+// ════════════════════════════════════════
+
+// ── Ripple effect on .tap elements ──
+function addRipple(el, e) {
+  const rect = el.getBoundingClientRect();
+  const r = document.createElement('span');
+  r.className = 'rip';
+  const d = Math.max(rect.width, rect.height);
+  r.style.cssText = `width:${d}px;height:${d}px;left:${(e.clientX||e.touches?.[0]?.clientX||rect.left+rect.width/2)-rect.left-d/2}px;top:${(e.clientY||e.touches?.[0]?.clientY||rect.top+rect.height/2)-rect.top-d/2}px`;
+  el.appendChild(r);
+  r.addEventListener('animationend', () => r.remove());
+}
+document.addEventListener('pointerdown', e => {
+  const t = e.target.closest('.tap');
+  if (t) addRipple(t, e);
+}, { passive: true });
+
+// ── Scroll progress bar ──
+const mSB = document.getElementById('mScrollBar');
+function updateScrollBar() {
+  if (!mSB) return;
+  const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  mSB.style.width = Math.min(pct, 100) + '%';
+}
+
+// ── Bottom nav section tracking ──
+const mNavSections = [
+  { id: 'hero',     btnId: 'mn-home' },
+  { id: 'programs', btnId: 'mn-programs' },
+  { id: 'news',     btnId: 'mn-news' },
+  { id: 'faq',      btnId: 'mn-faq' },
+];
+function updateMNav() {
+  let active = 'mn-home';
+  const mid = window.innerHeight / 2;
+  for (const { id, btnId } of mNavSections) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const rect = el.getBoundingClientRect();
+    if (rect.top <= mid) active = btnId;
+  }
+  document.querySelectorAll('.m-nav-item').forEach(b => b.classList.toggle('on', b.id === active));
+}
+
+function mNavGo(sectionId, btn) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 58, behavior: 'smooth' });
+  document.querySelectorAll('.m-nav-item').forEach(b => b.classList.remove('on'));
+  if (btn) btn.classList.add('on');
+  // Haptic feedback
+  if (navigator.vibrate) navigator.vibrate(8);
+}
+
+// ── Combined scroll handler ──
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateScrollBar();
+      updateMNav();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive: true });
+
+// ── Program filter chips ──
+function filterProg(btn, filter) {
+  document.querySelectorAll('.prog-chip').forEach(c => c.classList.remove('on'));
+  btn.classList.add('on');
+  if (navigator.vibrate) navigator.vibrate(6);
+  document.querySelectorAll('#programs .program-card').forEach(card => {
+    if (filter === 'all') {
+      card.style.display = '';
+      card.style.opacity = '1';
+      card.style.transform = '';
+    } else {
+      const tags = card.dataset.tags || '';
+      const show = tags.includes(filter);
+      card.style.display = show ? '' : 'none';
+      if (show) { card.style.opacity = '0'; card.style.transform = 'translateY(8px)'; requestAnimationFrame(() => { card.style.transition = 'opacity .3s,transform .3s'; card.style.opacity = '1'; card.style.transform = ''; }); }
+    }
+  });
+}
+
+// ── News badge on bottom nav ──
+function updateNewsBadge() {
+  const arts = getArticles().filter(a => a.status === 'published');
+  const newsBtn = document.getElementById('mn-news');
+  if (newsBtn && arts.length > 0) newsBtn.classList.add('has-badge');
+}
+updateNewsBadge();
+
+// ── Hide swipe hint after first interaction ──
+const swipeHintEl = document.getElementById('swipeHint');
+if (swipeHintEl) {
+  setTimeout(() => { if (swipeHintEl) swipeHintEl.style.display = 'none'; }, 4000);
+}
+
+// ── Web Share API ──
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Tuyển Sinh 2026 – Trường CĐ Kỹ Thuật Hải Phòng',
+      text: 'Học nghề miễn phí – Cam kết việc làm – Hỗ trợ XKLĐ Nhật, Hàn!',
+      url: window.location.href
+    }).catch(() => {});
+  }
+}
+
+// ── Haptic on FAQ toggle ──
+const origToggle = window.toggleFaq;
+window.toggleFaq = (btn) => {
+  if (navigator.vibrate) navigator.vibrate(6);
+  origToggle(btn);
+};
+
+// ── Add share button to mobile quick strip ──
+(function addShareChip() {
+  if (!navigator.share) return;
+  const strip = document.getElementById('mStrip');
+  if (!strip) return;
+  const chip = document.createElement('div');
+  chip.className = 'm-chip tap';
+  chip.style.cssText = 'cursor:pointer';
+  chip.onclick = sharePage;
+  chip.innerHTML = '<span style="font-size:18px">📤</span><span class="cl" style="color:#fff">Chia sẻ<br><strong style="color:var(--gold);font-family:\'Barlow Condensed\',sans-serif;font-size:13px">trang này</strong></span>';
+  strip.appendChild(chip);
+})();
+
+// ── Touch: hold-to-call on phone numbers ──
+document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+  a.addEventListener('touchstart', () => { if (navigator.vibrate) navigator.vibrate([0, 30, 0]); }, { passive: true });
+});
+
+// ── Pull-to-scroll indicator (visual only) ──
+let startY = 0;
+document.addEventListener('touchstart', e => { startY = e.touches[0].clientY; }, { passive: true });
+</script>
+</body>
+</html>

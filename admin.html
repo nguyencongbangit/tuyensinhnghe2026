@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin – HPTC Tuyển Sinh 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;900&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --red:#c0392b;--red-dark:#96281b;
+  --navy:#0d1b3e;--navy2:#162952;
+  --gold:#e8a020;--gold2:#f5c842;
+  --green:#1a7a4a;
+  --bg:#f0f2f7;--card:#fff;
+  --text:#1a1a2e;--muted:#6b7280;--border:#e2e6ef;
+  --sidebar-w:240px;
+}
+body{font-family:'Be Vietnam Pro',sans-serif;background:var(--bg);color:var(--text);font-size:14px;min-height:100vh;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Barlow Condensed',sans-serif;line-height:1.2}
+input,textarea,select,button{font-family:inherit}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ── LOGIN ── */
+#loginScreen{position:fixed;inset:0;background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,#1a3870 100%);display:flex;align-items:center;justify-content:center;z-index:1000}
+.login-card{background:#fff;border-radius:16px;padding:40px 36px;width:360px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.login-card .logo{width:72px;height:72px;border-radius:50%;object-fit:cover;margin:0 auto 12px}
+.login-card h2{font-size:22px;color:var(--navy);margin-bottom:4px}
+.login-card p{font-size:12px;color:var(--muted);margin-bottom:24px}
+.login-field{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;margin-bottom:12px;outline:none;transition:border-color .2s}
+.login-field:focus{border-color:var(--navy)}
+.login-btn{width:100%;background:var(--red);color:#fff;border:none;border-radius:8px;padding:12px;font-size:15px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.5px;cursor:pointer;transition:background .2s}
+.login-btn:hover{background:var(--red-dark)}
+.login-err{color:var(--red);font-size:12px;margin-top:8px;display:none}
+#loginScreen.hidden{display:none}
+
+/* ── LAYOUT ── */
+#appLayout{display:flex;min-height:100vh}
+#appLayout.hidden{display:none}
+
+/* ── SIDEBAR ── */
+.sidebar{width:var(--sidebar-w);background:var(--navy);display:flex;flex-direction:column;flex-shrink:0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar-header{padding:20px 16px 16px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-logo{display:flex;align-items:center;gap:10px}
+.sidebar-logo img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.sidebar-logo .sname{color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;line-height:1.2}
+.sidebar-logo .sname span{color:rgba(255,255,255,.5);font-size:11px;font-weight:400;display:block}
+.sidebar-nav{padding:12px 0;flex:1}
+.nav-group{padding:0 10px;margin-bottom:4px}
+.nav-group-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.3);text-transform:uppercase;padding:8px 8px 4px}
+.nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;color:rgba(255,255,255,.6);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:2px;border:none;background:none;width:100%;text-align:left}
+.nav-item .icon{font-size:17px;flex-shrink:0;width:20px;text-align:center}
+.nav-item:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav-item.active{color:var(--gold);background:rgba(232,160,32,.12)}
+.sidebar-footer{padding:12px 16px;border-top:1px solid rgba(255,255,255,.08)}
+.logout-btn{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:13px;cursor:pointer;padding:8px 4px;border:none;background:none;width:100%;border-radius:6px;transition:all .2s}
+.logout-btn:hover{color:#fff;background:rgba(255,255,255,.06);padding-left:10px}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{background:#fff;border-bottom:1px solid var(--border);padding:0 24px;height:58px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.topbar h1{font-size:20px;color:var(--navy)}
+.topbar-right{display:flex;align-items:center;gap:12px}
+.topbar-badge{background:var(--gold);color:var(--navy);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:900;padding:3px 10px;border-radius:20px;letter-spacing:.5px}
+.content{flex:1;overflow-y:auto;padding:24px}
+
+/* ── SECTIONS ── */
+.section{display:none}
+.section.active{display:block}
+
+/* ── DASHBOARD ── */
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+.dash-stat{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;gap:14px}
+.dash-stat .icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.dash-stat .icon.red{background:#fff0f0}
+.dash-stat .icon.gold{background:#fff9e0}
+.dash-stat .icon.green{background:#edf9f3}
+.dash-stat .num{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:900;color:var(--navy);line-height:1}
+.dash-stat .lbl{font-size:12px;color:var(--muted);margin-top:2px}
+.dash-quick{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.dash-quick h3{font-size:16px;margin-bottom:14px;color:var(--navy)}
+.quick-actions{display:flex;gap:10px;flex-wrap:wrap}
+.quick-btn{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.quick-btn.red{background:var(--red);color:#fff}
+.quick-btn.red:hover{background:var(--red-dark)}
+.quick-btn.navy{background:var(--navy);color:#fff}
+.quick-btn.navy:hover{background:var(--navy2)}
+.quick-btn.gold{background:var(--gold);color:var(--navy)}
+.quick-btn.gold:hover{background:var(--gold2)}
+
+/* ── CARD / TABLE ── */
+.card{background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);overflow:hidden;margin-bottom:20px}
+.card-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.card-header h2{font-size:18px;color:var(--navy)}
+.card-body{padding:20px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .2s;white-space:nowrap}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red-dark)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{background:var(--navy2)}
+.btn-gold{background:var(--gold);color:var(--navy)}
+.btn-gold:hover{background:var(--gold2)}
+.btn-ghost{background:transparent;color:var(--muted);border:1.5px solid var(--border)}
+.btn-ghost:hover{border-color:var(--navy);color:var(--navy)}
+.btn-sm{padding:5px 12px;font-size:12px}
+.btn-icon{padding:6px 8px;border-radius:6px}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--bg);padding:10px 12px;text-align:left;font-family:'Barlow Condensed',sans-serif;font-weight:700;color:var(--navy);font-size:13px;letter-spacing:.3px;border-bottom:2px solid var(--border);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafbff}
+.thumb{width:60px;height:40px;object-fit:cover;border-radius:6px;background:var(--bg)}
+.status-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px}
+.status-published{background:#e5f5ed;color:var(--green)}
+.status-draft{background:#f5f5f5;color:var(--muted)}
+
+/* ── FORM ── */
+.form-row{margin-bottom:16px}
+.form-row label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.form-row label span{color:var(--red)}
+.form-control{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:10px 12px;font-size:14px;outline:none;transition:border-color .2s;background:#fff;color:var(--text)}
+.form-control:focus{border-color:var(--navy)}
+textarea.form-control{resize:vertical;min-height:120px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.upload-zone{border:2px dashed var(--border);border-radius:10px;padding:28px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fafbff}
+.upload-zone:hover,.upload-zone.drag{border-color:var(--navy);background:#f0f4ff}
+.upload-zone .upload-icon{font-size:36px;margin-bottom:8px}
+.upload-zone p{font-size:13px;color:var(--muted)}
+.upload-zone .or{font-size:11px;margin:6px 0}
+.upload-preview{position:relative;display:inline-block}
+.upload-preview img{max-height:120px;border-radius:8px;border:2px solid var(--border)}
+.upload-preview .remove-img{position:absolute;top:-8px;right:-8px;background:var(--red);color:#fff;border:none;border-radius:50%;width:22px;height:22px;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1}
+.form-hint{font-size:11px;color:var(--muted);margin-top:4px}
+.char-count{font-size:11px;color:var(--muted);text-align:right;margin-top:2px}
+
+/* ── BANNER GRID ── */
+.banner-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
+.banner-card{background:#fff;border-radius:10px;border:2px solid var(--border);overflow:hidden;transition:all .2s}
+.banner-card:hover{border-color:var(--navy);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.banner-card .preview{height:110px;overflow:hidden;background:#111;display:flex;align-items:center}
+.banner-card .preview img{width:100%;height:100%;object-fit:contain}
+.banner-card .bc-body{padding:10px 12px}
+.banner-card .bc-alt{font-size:12px;font-weight:600;color:var(--navy);margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.banner-card .bc-alt input{width:100%;border:1.5px solid var(--border);border-radius:6px;padding:4px 8px;font-size:12px;font-family:inherit;outline:none}
+.banner-card .bc-alt input:focus{border-color:var(--navy)}
+.banner-card .bc-actions{display:flex;justify-content:space-between;align-items:center}
+.banner-card .order-btns{display:flex;gap:4px}
+.order-btn{background:var(--bg);border:1px solid var(--border);border-radius:5px;width:26px;height:26px;cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.order-btn:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.banner-card .badge-num{background:var(--navy);color:var(--gold);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:900;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;backdrop-filter:blur(3px)}
+.modal-overlay.hidden{display:none}
+.modal{background:#fff;border-radius:14px;width:100%;max-width:720px;box-shadow:0 20px 60px rgba(0,0,0,.25);margin:auto}
+.modal-header{padding:18px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.modal-header h3{font-size:20px;color:var(--navy)}
+.modal-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--muted);padding:4px 8px;border-radius:6px;transition:all .2s;line-height:1}
+.modal-close:hover{background:var(--bg);color:var(--text)}
+.modal-body{padding:24px}
+.modal-footer{padding:16px 24px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:10px;background:#fafbff;border-radius:0 0 14px 14px}
+
+/* ── TOAST ── */
+.toast-container{position:fixed;bottom:24px;right:24px;z-index:999;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--navy);color:#fff;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.25);display:flex;align-items:center;gap:10px;animation:slideInToast .3s ease;max-width:300px}
+.toast.success{background:var(--green)}
+.toast.error{background:var(--red)}
+.toast.warning{background:#e67e22}
+@keyframes slideInToast{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── EDITOR TOOLBAR ── */
+.editor-toolbar{display:flex;gap:4px;padding:8px 10px;background:var(--bg);border:1.5px solid var(--border);border-bottom:none;border-radius:8px 8px 0 0;flex-wrap:wrap}
+.editor-toolbar button{padding:5px 10px;border:1px solid var(--border);background:#fff;border-radius:5px;cursor:pointer;font-size:12px;font-weight:700;transition:all .2s;line-height:1}
+.editor-toolbar button:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.editor-content{border:1.5px solid var(--border);border-radius:0 0 8px 8px;padding:14px;min-height:180px;outline:none;font-size:14px;line-height:1.7;background:#fff}
+.editor-content:focus{border-color:var(--navy)}
+.editor-content p{margin-bottom:8px}
+.editor-content h2,.editor-content h3{margin:12px 0 6px;color:var(--navy)}
+.editor-content ul,.editor-content ol{padding-left:20px;margin-bottom:8px}
+.editor-content a{color:var(--red);text-decoration:underline}
+.editor-content img{max-width:100%;border-radius:6px;margin:8px 0}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:48px 20px;color:var(--muted)}
+.empty-state .empty-icon{font-size:48px;margin-bottom:12px}
+.empty-state p{font-size:14px;margin-bottom:16px}
+
+/* ── CONFIRM DIALOG ── */
+.confirm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:600;display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
+.confirm-overlay.hidden{display:none}
+.confirm-box{background:#fff;border-radius:14px;padding:28px 28px 20px;max-width:380px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.confirm-box .ci{font-size:44px;margin-bottom:12px}
+.confirm-box h3{font-size:18px;color:var(--navy);margin-bottom:8px}
+.confirm-box p{font-size:13px;color:var(--muted);margin-bottom:20px}
+.confirm-actions{display:flex;gap:10px;justify-content:center}
+
+/* ── ADD BANNER TABS ── */
+.tab-switcher{display:flex;gap:0;border:1.5px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px;background:var(--bg)}
+.tab-switcher button{flex:1;padding:8px 12px;border:none;background:transparent;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;color:var(--muted)}
+.tab-switcher button.active{background:var(--navy);color:#fff}
+
+@media(max-width:768px){
+  .sidebar{width:60px}
+  .sidebar-logo .sname,.nav-group-label,.nav-item span,.logout-btn span{display:none}
+  .dash-stats{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .banner-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ── LOGIN ── -->
+<div id="loginScreen">
+  <div class="login-card">
+    <img src="images/logo.png" alt="HPTC" class="logo">
+    <h2>HPTC Admin</h2>
+    <p>Quản trị nội dung tuyển sinh 2026</p>
+    <input type="password" id="loginPass" class="login-field" placeholder="Mật khẩu quản trị" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="login-btn" onclick="doLogin()">Đăng nhập</button>
+    <p class="login-err" id="loginErr">❌ Sai mật khẩu. Vui lòng thử lại.</p>
+  </div>
+</div>
+
+<!-- ── APP ── -->
+<div id="appLayout" class="hidden">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <img src="images/logo.png" alt="HPTC">
+        <div class="sname">HPTC Admin<span>Tuyển Sinh 2026</span></div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-group">
+        <div class="nav-group-label">Tổng quan</div>
+        <button class="nav-item active" onclick="showSection('dashboard',this)">
+          <span class="icon">📊</span><span>Dashboard</span>
+        </button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Nội dung</div>
+        <button class="nav-item" onclick="showSection('banners',this)">
+          <span class="icon">🖼️</span><span>Ảnh Banner</span>
+        </button>
+        <button class="nav-item" onclick="showSection('articles',this)">
+          <span class="icon">📝</span><span>Bài viết</span>
+        </button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-label">Hệ thống</div>
+        <button class="nav-item" onclick="window.open('index.html','_blank')">
+          <span class="icon">🌐</span><span>Xem Website</span>
+        </button>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="doLogout()">
+        <span>🚪</span><span>Đăng xuất</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <h1 id="topbarTitle">Dashboard</h1>
+      <div class="topbar-right">
+        <span class="topbar-badge">ADMIN</span>
+      </div>
+    </div>
+    <div class="content">
+
+      <!-- ── DASHBOARD ── -->
+      <div id="sec-dashboard" class="section active">
+        <div class="dash-stats">
+          <div class="dash-stat">
+            <div class="icon red">🖼️</div>
+            <div><div class="num" id="stat-banners">0</div><div class="lbl">Ảnh banner</div></div>
+          </div>
+          <div class="dash-stat">
+            <div class="icon gold">📝</div>
+            <div><div class="num" id="stat-articles">0</div><div class="lbl">Tổng bài viết</div></div>
+          </div>
+          <div class="dash-stat">
+            <div class="icon green">✅</div>
+            <div><div class="num" id="stat-published">0</div><div class="lbl">Bài đã đăng</div></div>
+          </div>
+        </div>
+        <div class="dash-quick">
+          <h3>Thao tác nhanh</h3>
+          <div class="quick-actions">
+            <button class="quick-btn red" onclick="showSection('banners'); openAddBanner()">🖼️ Thêm banner mới</button>
+            <button class="quick-btn navy" onclick="showSection('articles'); openArticleEditor()">📝 Viết bài mới</button>
+            <button class="quick-btn gold" onclick="window.open('index.html','_blank')">🌐 Xem website</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── BANNERS ── -->
+      <div id="sec-banners" class="section">
+        <div class="card">
+          <div class="card-header">
+            <h2>🖼️ Quản lý ảnh Banner / Slider</h2>
+            <button class="btn btn-red" onclick="openAddBanner()">＋ Thêm ảnh mới</button>
+          </div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--muted);margin-bottom:16px">Kéo thả hoặc dùng nút ← → để sắp xếp thứ tự. Thay đổi được lưu tự động.</p>
+            <div class="banner-grid" id="bannerGrid"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── ARTICLES ── -->
+      <div id="sec-articles" class="section">
+        <div class="card">
+          <div class="card-header">
+            <h2>📝 Quản lý Bài viết</h2>
+            <button class="btn btn-red" onclick="openArticleEditor()">＋ Viết bài mới</button>
+          </div>
+          <div class="card-body" style="padding:0">
+            <div id="articlesEmpty" class="empty-state hidden">
+              <div class="empty-icon">📝</div>
+              <p>Chưa có bài viết nào. Hãy tạo bài viết đầu tiên!</p>
+              <button class="btn btn-red" onclick="openArticleEditor()">＋ Viết bài mới</button>
+            </div>
+            <table id="articlesTable">
+              <thead>
+                <tr>
+                  <th style="width:70px">Ảnh</th>
+                  <th>Tiêu đề</th>
+                  <th style="width:110px">Danh mục</th>
+                  <th style="width:90px">Trạng thái</th>
+                  <th style="width:100px">Ngày tạo</th>
+                  <th style="width:100px">Thao tác</th>
+                </tr>
+              </thead>
+              <tbody id="articlesBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- .content -->
+  </div><!-- .main -->
+</div><!-- #appLayout -->
+
+<!-- ── MODAL: ADD BANNER ── -->
+<div class="modal-overlay hidden" id="bannerModal">
+  <div class="modal" style="max-width:540px">
+    <div class="modal-header">
+      <h3>🖼️ Thêm ảnh Banner</h3>
+      <button class="modal-close" onclick="closeBannerModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="tab-switcher">
+        <button id="tabUpload" class="active" onclick="switchBannerTab('upload')">📁 Tải ảnh lên</button>
+        <button id="tabUrl" onclick="switchBannerTab('url')">🔗 Nhập URL</button>
+      </div>
+
+      <div id="panelUpload">
+        <div class="form-row">
+          <div class="upload-zone" id="bannerDropZone" onclick="document.getElementById('bannerFileInput').click()" ondragover="dragOver(event)" ondrop="dropFile(event,'banner')">
+            <div class="upload-icon">🖼️</div>
+            <p><strong>Nhấn để chọn ảnh</strong> hoặc kéo thả vào đây</p>
+            <p class="or">PNG, JPG, JPEG, WEBP • Tối đa 5MB</p>
+          </div>
+          <input type="file" id="bannerFileInput" accept="image/*" style="display:none" onchange="handleBannerFile(this.files[0])">
+          <div id="bannerImgPreview" style="margin-top:12px;display:none">
+            <div class="upload-preview">
+              <img id="bannerPreviewImg" src="" alt="">
+              <button class="remove-img" onclick="clearBannerPreview()">×</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panelUrl" style="display:none">
+        <div class="form-row">
+          <label>URL ảnh</label>
+          <input type="url" id="bannerUrlInput" class="form-control" placeholder="https://... hoặc images/tenfile.jpg">
+          <div class="form-hint">Nhập đường dẫn URL hoặc đường dẫn ảnh trong thư mục images/</div>
+        </div>
+        <div id="bannerUrlPreview" style="margin-top:8px;display:none">
+          <img id="bannerUrlPreviewImg" src="" alt="" style="max-height:120px;border-radius:8px;border:2px solid var(--border)">
+        </div>
+        <button class="btn btn-ghost" style="margin-top:8px" onclick="previewBannerUrl()">👁 Xem trước</button>
+      </div>
+
+      <div class="form-row" style="margin-top:16px">
+        <label>Mô tả ảnh (Alt text)</label>
+        <input type="text" id="bannerAltInput" class="form-control" placeholder="VD: Tuyển Sinh 2026 – HPTC">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeBannerModal()">Hủy</button>
+      <button class="btn btn-red" onclick="saveBanner()">💾 Thêm banner</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── MODAL: ARTICLE EDITOR ── -->
+<div class="modal-overlay hidden" id="articleModal">
+  <div class="modal" style="max-width:800px">
+    <div class="modal-header">
+      <h3 id="articleModalTitle">📝 Viết bài mới</h3>
+      <button class="modal-close" onclick="closeArticleModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-row" style="grid-column:1/-1">
+          <label>Tiêu đề bài viết <span>*</span></label>
+          <input type="text" id="artTitle" class="form-control" placeholder="Nhập tiêu đề...">
+        </div>
+        <div class="form-row">
+          <label>Danh mục</label>
+          <select id="artCategory" class="form-control">
+            <option>Tin tức</option>
+            <option>Thông báo</option>
+            <option>Ngành học</option>
+            <option>Tuyển sinh</option>
+            <option>Học bổng</option>
+            <option>Sự kiện</option>
+            <option>Xuất khẩu lao động</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>Trạng thái</label>
+          <select id="artStatus" class="form-control">
+            <option value="published">✅ Đã đăng</option>
+            <option value="draft">📋 Bản nháp</option>
+          </select>
+        </div>
+        <div class="form-row" style="grid-column:1/-1">
+          <label>Ảnh đại diện</label>
+          <div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+            <div class="upload-zone" style="flex:1;min-width:200px;padding:16px" onclick="document.getElementById('artImgFile').click()" ondragover="dragOver(event)" ondrop="dropFile(event,'article')">
+              <div class="upload-icon" style="font-size:24px">📷</div>
+              <p style="font-size:12px">Tải ảnh lên hoặc nhập URL bên cạnh</p>
+            </div>
+            <input type="file" id="artImgFile" accept="image/*" style="display:none" onchange="handleArticleImg(this.files[0])">
+            <div style="flex:1;min-width:200px">
+              <input type="url" id="artImgUrl" class="form-control" placeholder="Hoặc nhập URL ảnh..." style="margin-bottom:8px" oninput="previewArticleImgUrl()">
+              <div id="artImgPreview" style="display:none">
+                <div class="upload-preview">
+                  <img id="artPreviewImg" src="" alt="" style="max-height:80px">
+                  <button class="remove-img" onclick="clearArticleImg()">×</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row" style="grid-column:1/-1">
+          <label>Tóm tắt</label>
+          <textarea id="artExcerpt" class="form-control" rows="2" placeholder="Mô tả ngắn hiển thị trên trang chủ (tối đa 160 ký tự)..." maxlength="160" oninput="updateCharCount()"></textarea>
+          <div class="char-count"><span id="excerptCount">0</span>/160</div>
+        </div>
+        <div class="form-row" style="grid-column:1/-1">
+          <label>Nội dung bài viết</label>
+          <div class="editor-toolbar">
+            <button onclick="execCmd('bold')" title="Bold"><b>B</b></button>
+            <button onclick="execCmd('italic')" title="Italic"><i>I</i></button>
+            <button onclick="execCmd('underline')" title="Gạch chân"><u>U</u></button>
+            <button onclick="execCmd('insertUnorderedList')" title="Danh sách">• List</button>
+            <button onclick="execCmd('insertOrderedList')" title="Danh sách số">1. List</button>
+            <button onclick="insertHeading()" title="Tiêu đề">H2</button>
+            <button onclick="insertLink()" title="Chèn link">🔗</button>
+            <button onclick="insertImgInEditor()" title="Chèn ảnh">🖼</button>
+            <button onclick="execCmd('removeFormat')" title="Xóa định dạng">✕ Format</button>
+          </div>
+          <div id="artContent" class="editor-content" contenteditable="true" placeholder="Nhập nội dung bài viết..."></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-ghost" onclick="closeArticleModal()">Hủy</button>
+      <button class="btn btn-gold" onclick="saveArticle('draft')">📋 Lưu nháp</button>
+      <button class="btn btn-red" onclick="saveArticle('published')">🚀 Đăng bài</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CONFIRM DIALOG ── -->
+<div class="confirm-overlay hidden" id="confirmDialog">
+  <div class="confirm-box">
+    <div class="ci" id="confirmIcon">⚠️</div>
+    <h3 id="confirmTitle">Xác nhận</h3>
+    <p id="confirmMsg">Bạn có chắc muốn thực hiện hành động này?</p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Hủy</button>
+      <button class="btn btn-red" id="confirmOkBtn" onclick="confirmOk()">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOASTS ── -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+// ════════════════════════════════════════════════════════
+// CONSTANTS & DATA
+// ════════════════════════════════════════════════════════
+const PASS = 'hptc2026';
+const KEY_BANNERS = 'hptc_banners';
+const KEY_ARTICLES = 'hptc_articles';
+const KEY_AUTH = 'hptc_admin_auth';
+
+const DEFAULT_BANNERS = [
+  { id: uid(), src: 'images/slide5.png', alt: 'HPTC – Kiến Tạo Tương Lai Vững Chắc', type: 'path' },
+  { id: uid(), src: 'images/slide6.png', alt: 'HPTC – Cánh Cửa Tương Lai, Chào Tân Sinh Viên 2026', type: 'path' },
+  { id: uid(), src: 'images/slide7.png', alt: 'HPTC – Đa Dạng Ngành Nghề, Học Đi Đôi Với Hành', type: 'path' },
+  { id: uid(), src: 'images/slide1.jpg', alt: 'Tuyển Sinh 2026 – Trường CĐ Kỹ Thuật Hải Phòng', type: 'path' },
+  { id: uid(), src: 'images/slide2.png', alt: 'Tuyển Sinh 2026 – Chào Team 2K8', type: 'path' },
+  { id: uid(), src: 'images/slide3.png', alt: 'Phương Thức Tuyển Sinh Năm 2026 – 4 phương thức', type: 'path' },
+  { id: uid(), src: 'images/slide4.png', alt: 'Phương Thức Tuyển Sinh 2026 – 6 phương thức', type: 'path' },
+  { id: uid(), src: 'images/slide8.png', alt: 'Tuyển Sinh 2026 – Cơ Hội Việc Làm Rộng Mở', type: 'path' },
+  { id: uid(), src: 'images/slide9.png', alt: 'Tuyển Sinh 2026 – Đăng Ký Ngay, Tương Lai Tươi Sáng', type: 'path' },
+  { id: uid(), src: 'images/slide10.png', alt: 'Tuyển Sinh 2026 – Trường CĐ Kỹ Thuật Hải Phòng, Khởi Đầu Tương Lai', type: 'path' },
+];
+
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+
+const BANNER_VERSION = 10;
+function getBanners() {
+  const ver = parseInt(localStorage.getItem(KEY_BANNERS + '_v') || '0');
+  if (ver < BANNER_VERSION) {
+    const existing = JSON.parse(localStorage.getItem(KEY_BANNERS) || '[]');
+    const custom = existing.filter(b => !b.id.startsWith('d'));
+    const merged = [...DEFAULT_BANNERS, ...custom];
+    localStorage.setItem(KEY_BANNERS, JSON.stringify(merged));
+    localStorage.setItem(KEY_BANNERS + '_v', BANNER_VERSION);
+    return merged;
+  }
+  const raw = localStorage.getItem(KEY_BANNERS);
+  if (!raw) { saveBanners(DEFAULT_BANNERS); return DEFAULT_BANNERS; }
+  return JSON.parse(raw);
+}
+function saveBanners(list) { localStorage.setItem(KEY_BANNERS, JSON.stringify(list)); }
+
+function getArticles() {
+  const raw = localStorage.getItem(KEY_ARTICLES);
+  return raw ? JSON.parse(raw) : [];
+}
+function saveArticles(list) { localStorage.setItem(KEY_ARTICLES, JSON.stringify(list)); }
+
+// ════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════
+function doLogin() {
+  const v = document.getElementById('loginPass').value;
+  if (v === PASS) {
+    sessionStorage.setItem(KEY_AUTH, '1');
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('appLayout').classList.remove('hidden');
+    initApp();
+  } else {
+    document.getElementById('loginErr').style.display = 'block';
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginPass').focus();
+  }
+}
+function doLogout() {
+  sessionStorage.removeItem(KEY_AUTH);
+  location.reload();
+}
+
+// ════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════
+function initApp() {
+  updateDashStats();
+  renderBanners();
+  renderArticles();
+}
+
+// ════════════════════════════════════════════════════════
+// NAV
+// ════════════════════════════════════════════════════════
+const sectionTitles = { dashboard: 'Dashboard', banners: '🖼️ Ảnh Banner', articles: '📝 Bài viết' };
+function showSection(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  else document.querySelector(`[onclick*="'${id}'"]`)?.classList.add('active');
+  document.getElementById('topbarTitle').textContent = sectionTitles[id] || id;
+  if (id === 'dashboard') updateDashStats();
+}
+
+// ════════════════════════════════════════════════════════
+// DASHBOARD
+// ════════════════════════════════════════════════════════
+function updateDashStats() {
+  const banners = getBanners();
+  const articles = getArticles();
+  const published = articles.filter(a => a.status === 'published').length;
+  document.getElementById('stat-banners').textContent = banners.length;
+  document.getElementById('stat-articles').textContent = articles.length;
+  document.getElementById('stat-published').textContent = published;
+}
+
+// ════════════════════════════════════════════════════════
+// BANNERS
+// ════════════════════════════════════════════════════════
+function renderBanners() {
+  const banners = getBanners();
+  const grid = document.getElementById('bannerGrid');
+  if (!banners.length) {
+    grid.innerHTML = '<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">🖼️</div><p>Chưa có ảnh banner nào</p></div>';
+    return;
+  }
+  grid.innerHTML = banners.map((b, i) => `
+    <div class="banner-card" data-id="${b.id}">
+      <div class="preview">
+        <img src="${b.src}" alt="${b.alt}" loading="lazy" onerror="this.style.opacity='.3';this.src=''">
+      </div>
+      <div class="bc-body">
+        <div class="bc-alt">
+          <input type="text" value="${escHtml(b.alt)}" placeholder="Mô tả ảnh..." onchange="updateBannerAlt('${b.id}',this.value)" title="Mô tả ảnh">
+        </div>
+        <div class="bc-actions">
+          <div class="order-btns">
+            <span class="badge-num">${i + 1}</span>
+            ${i > 0 ? `<button class="order-btn" onclick="moveBanner('${b.id}',-1)" title="Lên">↑</button>` : '<button class="order-btn" style="opacity:.3" disabled>↑</button>'}
+            ${i < banners.length - 1 ? `<button class="order-btn" onclick="moveBanner('${b.id}',1)" title="Xuống">↓</button>` : '<button class="order-btn" style="opacity:.3" disabled>↓</button>'}
+          </div>
+          <button class="btn btn-sm" style="background:#fff0f0;color:var(--red);border:1px solid #ffc0c0" onclick="deleteBanner('${b.id}')">🗑 Xóa</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateBannerAlt(id, val) {
+  const banners = getBanners();
+  const b = banners.find(x => x.id === id);
+  if (b) { b.alt = val; saveBanners(banners); }
+}
+
+function moveBanner(id, dir) {
+  const banners = getBanners();
+  const idx = banners.findIndex(b => b.id === id);
+  if (idx < 0) return;
+  const newIdx = idx + dir;
+  if (newIdx < 0 || newIdx >= banners.length) return;
+  [banners[idx], banners[newIdx]] = [banners[newIdx], banners[idx]];
+  saveBanners(banners);
+  renderBanners();
+  toast('Đã đổi thứ tự banner ✓', 'success');
+}
+
+function deleteBanner(id) {
+  showConfirm('🗑️', 'Xóa ảnh banner?', 'Ảnh sẽ bị xóa khỏi slider. Hành động này không thể hoàn tác.', () => {
+    const banners = getBanners().filter(b => b.id !== id);
+    saveBanners(banners);
+    renderBanners();
+    toast('Đã xóa banner', 'success');
+  });
+}
+
+// Add banner modal
+let bannerTab = 'upload';
+let bannerImgData = null; // base64 string
+
+function openAddBanner() {
+  document.getElementById('bannerModal').classList.remove('hidden');
+  document.getElementById('bannerAltInput').value = '';
+  clearBannerPreview();
+  document.getElementById('bannerUrlInput').value = '';
+  document.getElementById('bannerUrlPreview').style.display = 'none';
+  switchBannerTab('upload');
+}
+function closeBannerModal() {
+  document.getElementById('bannerModal').classList.add('hidden');
+  bannerImgData = null;
+}
+
+function switchBannerTab(tab) {
+  bannerTab = tab;
+  document.getElementById('tabUpload').classList.toggle('active', tab === 'upload');
+  document.getElementById('tabUrl').classList.toggle('active', tab === 'url');
+  document.getElementById('panelUpload').style.display = tab === 'upload' ? '' : 'none';
+  document.getElementById('panelUrl').style.display = tab === 'url' ? '' : 'none';
+}
+
+function handleBannerFile(file) {
+  if (!file || !file.type.startsWith('image/')) { toast('Vui lòng chọn file ảnh', 'error'); return; }
+  if (file.size > 5 * 1024 * 1024) { toast('Ảnh không được vượt quá 5MB', 'error'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    bannerImgData = e.target.result;
+    document.getElementById('bannerPreviewImg').src = bannerImgData;
+    document.getElementById('bannerImgPreview').style.display = '';
+    if (!document.getElementById('bannerAltInput').value) {
+      document.getElementById('bannerAltInput').value = file.name.replace(/\.[^.]+$/, '').replace(/[-_]/g, ' ');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearBannerPreview() {
+  bannerImgData = null;
+  document.getElementById('bannerImgPreview').style.display = 'none';
+  document.getElementById('bannerPreviewImg').src = '';
+  document.getElementById('bannerFileInput').value = '';
+}
+
+function previewBannerUrl() {
+  const url = document.getElementById('bannerUrlInput').value.trim();
+  if (!url) return;
+  const img = document.getElementById('bannerUrlPreviewImg');
+  img.src = url;
+  img.onerror = () => toast('Không thể tải ảnh từ URL này', 'error');
+  img.onload = () => {
+    document.getElementById('bannerUrlPreview').style.display = '';
+    toast('Ảnh hợp lệ ✓', 'success');
+  };
+}
+
+function saveBanner() {
+  let src = '', type = 'path';
+  if (bannerTab === 'upload') {
+    if (!bannerImgData) { toast('Vui lòng chọn ảnh', 'error'); return; }
+    src = bannerImgData; type = 'base64';
+  } else {
+    src = document.getElementById('bannerUrlInput').value.trim();
+    if (!src) { toast('Vui lòng nhập URL ảnh', 'error'); return; }
+  }
+  const alt = document.getElementById('bannerAltInput').value.trim() || 'Banner HPTC';
+  const banners = getBanners();
+  banners.push({ id: uid(), src, alt, type });
+  saveBanners(banners);
+  renderBanners();
+  closeBannerModal();
+  toast('✅ Đã thêm banner mới', 'success');
+  updateDashStats();
+}
+
+// ════════════════════════════════════════════════════════
+// ARTICLES
+// ════════════════════════════════════════════════════════
+function renderArticles() {
+  const articles = getArticles();
+  const tbody = document.getElementById('articlesBody');
+  const empty = document.getElementById('articlesEmpty');
+  const table = document.getElementById('articlesTable');
+  if (!articles.length) {
+    empty.classList.remove('hidden');
+    table.style.display = 'none';
+    return;
+  }
+  empty.classList.add('hidden');
+  table.style.display = '';
+  tbody.innerHTML = articles.slice().reverse().map(a => `
+    <tr>
+      <td>${a.coverImage ? `<img class="thumb" src="${a.coverImage}" alt="" onerror="this.style.display='none'">` : '<div class="thumb" style="background:var(--bg);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:18px">📄</div>'}</td>
+      <td><div style="font-weight:700;color:var(--navy);margin-bottom:3px">${escHtml(a.title)}</div><div style="font-size:11px;color:var(--muted)">${escHtml(a.excerpt||'').slice(0,80)}${a.excerpt?.length>80?'...':''}</div></td>
+      <td><span class="status-badge" style="background:var(--light,#f0f4fa);color:var(--navy)">${escHtml(a.category)}</span></td>
+      <td><span class="status-badge ${a.status==='published'?'status-published':'status-draft'}">${a.status==='published'?'✅ Đã đăng':'📋 Nháp'}</span></td>
+      <td style="font-size:12px;color:var(--muted)">${formatDate(a.createdAt)}</td>
+      <td>
+        <div style="display:flex;gap:4px">
+          <button class="btn btn-sm btn-gold" onclick="editArticle('${a.id}')">✏️</button>
+          <button class="btn btn-sm" style="background:#fff0f0;color:var(--red);border:1px solid #ffc0c0" onclick="deleteArticle('${a.id}')">🗑</button>
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+let editingArticleId = null;
+let articleImgData = null;
+
+function openArticleEditor(id) {
+  editingArticleId = id || null;
+  articleImgData = null;
+  const modal = document.getElementById('articleModal');
+  modal.classList.remove('hidden');
+  document.getElementById('articleModalTitle').textContent = id ? '✏️ Sửa bài viết' : '📝 Viết bài mới';
+
+  if (id) {
+    const a = getArticles().find(x => x.id === id);
+    if (a) {
+      document.getElementById('artTitle').value = a.title || '';
+      document.getElementById('artCategory').value = a.category || 'Tin tức';
+      document.getElementById('artStatus').value = a.status || 'draft';
+      document.getElementById('artExcerpt').value = a.excerpt || '';
+      document.getElementById('artContent').innerHTML = a.content || '';
+      updateCharCount();
+      if (a.coverImage) {
+        document.getElementById('artPreviewImg').src = a.coverImage;
+        document.getElementById('artImgPreview').style.display = '';
+        if (a.coverImageType === 'url') document.getElementById('artImgUrl').value = a.coverImage;
+      } else { clearArticleImg(); }
+    }
+  } else {
+    document.getElementById('artTitle').value = '';
+    document.getElementById('artCategory').value = 'Tin tức';
+    document.getElementById('artStatus').value = 'published';
+    document.getElementById('artExcerpt').value = '';
+    document.getElementById('artContent').innerHTML = '';
+    clearArticleImg();
+    updateCharCount();
+  }
+  document.getElementById('artTitle').focus();
+}
+
+function editArticle(id) { openArticleEditor(id); }
+
+function closeArticleModal() {
+  document.getElementById('articleModal').classList.add('hidden');
+  editingArticleId = null;
+  articleImgData = null;
+}
+
+function saveArticle(statusOverride) {
+  const title = document.getElementById('artTitle').value.trim();
+  if (!title) { toast('Vui lòng nhập tiêu đề bài viết', 'error'); document.getElementById('artTitle').focus(); return; }
+  const status = statusOverride || document.getElementById('artStatus').value;
+  const excerpt = document.getElementById('artExcerpt').value.trim();
+  const content = document.getElementById('artContent').innerHTML.trim();
+  const category = document.getElementById('artCategory').value;
+  let coverImage = '', coverImageType = '';
+  if (articleImgData) { coverImage = articleImgData; coverImageType = 'base64'; }
+  else {
+    const urlVal = document.getElementById('artImgUrl').value.trim();
+    if (urlVal) { coverImage = urlVal; coverImageType = 'url'; }
+    else if (editingArticleId) {
+      const existing = getArticles().find(a => a.id === editingArticleId);
+      if (existing) { coverImage = existing.coverImage || ''; coverImageType = existing.coverImageType || ''; }
+    }
+  }
+
+  const articles = getArticles();
+  if (editingArticleId) {
+    const idx = articles.findIndex(a => a.id === editingArticleId);
+    if (idx >= 0) {
+      articles[idx] = { ...articles[idx], title, category, excerpt, content, coverImage, coverImageType, status, updatedAt: new Date().toISOString() };
+    }
+  } else {
+    articles.push({ id: uid(), title, category, excerpt, content, coverImage, coverImageType, status, createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() });
+  }
+  saveArticles(articles);
+  renderArticles();
+  closeArticleModal();
+  updateDashStats();
+  toast(status === 'published' ? '🚀 Bài viết đã được đăng!' : '📋 Đã lưu bản nháp', 'success');
+}
+
+function deleteArticle(id) {
+  showConfirm('🗑️', 'Xóa bài viết?', 'Bài viết sẽ bị xóa vĩnh viễn.', () => {
+    const articles = getArticles().filter(a => a.id !== id);
+    saveArticles(articles);
+    renderArticles();
+    updateDashStats();
+    toast('Đã xóa bài viết', 'success');
+  });
+}
+
+function handleArticleImg(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  if (file.size > 3 * 1024 * 1024) { toast('Ảnh không quá 3MB', 'error'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    articleImgData = e.target.result;
+    document.getElementById('artPreviewImg').src = articleImgData;
+    document.getElementById('artImgPreview').style.display = '';
+    document.getElementById('artImgUrl').value = '';
+  };
+  reader.readAsDataURL(file);
+}
+
+function previewArticleImgUrl() {
+  const url = document.getElementById('artImgUrl').value.trim();
+  if (!url) { clearArticleImg(); return; }
+  document.getElementById('artPreviewImg').src = url;
+  document.getElementById('artImgPreview').style.display = '';
+  articleImgData = null;
+}
+
+function clearArticleImg() {
+  articleImgData = null;
+  document.getElementById('artImgPreview').style.display = 'none';
+  document.getElementById('artPreviewImg').src = '';
+  document.getElementById('artImgFile').value = '';
+  document.getElementById('artImgUrl').value = '';
+}
+
+function updateCharCount() {
+  const len = document.getElementById('artExcerpt').value.length;
+  document.getElementById('excerptCount').textContent = len;
+}
+
+// ── EDITOR ──
+function execCmd(cmd, val) { document.getElementById('artContent').focus(); document.execCommand(cmd, false, val); }
+function insertHeading() { execCmd('formatBlock', 'h2'); }
+function insertLink() {
+  const url = prompt('Nhập URL:');
+  if (url) execCmd('createLink', url);
+}
+function insertImgInEditor() {
+  const url = prompt('Nhập URL ảnh:');
+  if (url) execCmd('insertImage', url);
+}
+
+// ── DRAG AND DROP ──
+function dragOver(e) { e.preventDefault(); e.currentTarget.classList.add('drag'); }
+function dropFile(e, target) {
+  e.preventDefault(); e.currentTarget.classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  if (target === 'banner') handleBannerFile(file);
+  else handleArticleImg(file);
+}
+
+// ════════════════════════════════════════════════════════
+// CONFIRM DIALOG
+// ════════════════════════════════════════════════════════
+let _confirmCallback = null;
+function showConfirm(icon, title, msg, cb) {
+  _confirmCallback = cb;
+  document.getElementById('confirmIcon').textContent = icon;
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmDialog').classList.remove('hidden');
+}
+function closeConfirm() { document.getElementById('confirmDialog').classList.add('hidden'); _confirmCallback = null; }
+function confirmOk() { if (_confirmCallback) _confirmCallback(); closeConfirm(); }
+
+// ════════════════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════════════════
+function toast(msg, type = '') {
+  const el = document.createElement('div');
+  el.className = `toast ${type}`;
+  el.textContent = msg;
+  document.getElementById('toastContainer').appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// ════════════════════════════════════════════════════════
+// UTILS
+// ════════════════════════════════════════════════════════
+function escHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function formatDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso);
+  return `${d.getDate().toString().padStart(2,'0')}/${(d.getMonth()+1).toString().padStart(2,'0')}/${d.getFullYear()}`;
+}
+
+// ════════════════════════════════════════════════════════
+// BOOT
+// ════════════════════════════════════════════════════════
+(function boot() {
+  if (sessionStorage.getItem(KEY_AUTH) === '1') {
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.getElementById('appLayout').classList.remove('hidden');
+    initApp();
+  }
+  document.getElementById('loginPass').focus();
+  // Close modals on overlay click
+  document.getElementById('bannerModal').addEventListener('click', e => { if(e.target===e.currentTarget) closeBannerModal(); });
+  document.getElementById('articleModal').addEventListener('click', e => { if(e.target===e.currentTarget) closeArticleModal(); });
+})();
+</script>
+</body>
+</html>
